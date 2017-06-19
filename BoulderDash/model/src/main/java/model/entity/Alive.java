@@ -95,4 +95,4 @@ public abstract class Alive implements IAlive{
 	/*public void setDirection(Direction direction){
 		delet to
 	}*/
-}rtgdrtd
+}rtgdrt
