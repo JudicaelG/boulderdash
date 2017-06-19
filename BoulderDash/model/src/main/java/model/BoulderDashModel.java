@@ -1,15 +1,15 @@
 package model;
 
 import java.util.ArrayList;
-
 import model.Tile.Tile;
 import model.entity.Alive;
 import model.entity.Block;
 
+
 public class BoulderDashModel {
 
 	public BoulderDashModel(){
-		
+		this.GameFrame = game;
 	}
 	public ArrayList<Block> getBlock(){
 		return null;
@@ -41,5 +41,6 @@ public class BoulderDashModel {
 	public void removeTile(Tile tile){
 		
 	}
+	
 	
 }
