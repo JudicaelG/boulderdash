@@ -41,6 +41,10 @@ public class BoulderDashModel {
 	public void removeTile(Tile tile){
 		
 	}
+	public KeyManager getKeyManager() { return game.getKeyManager();}
+
+	
+	}
 	
 	
-}
+
