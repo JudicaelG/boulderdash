@@ -7,14 +7,14 @@ import model.Tile.Tile;
 
 public abstract class Alive implements IAlive{
 
-	private static float SPEED = 3;
+	protected static float SPEED = 3;
 	public static int WIDTH = 32;
 	public static int HEIGHT = 32 ;
 	//update 19/06
 	protected float xMove, yMove;
 	public float DEFAULT_SPEED;
 	protected Rectangle bounds;
-	private BoulderDashModel boulderDashModel;
+	public BoulderDashModel boulderDashModel;
 	protected float x, y; // position
     protected int width, height; // size
 	 
@@ -85,14 +85,5 @@ public abstract class Alive implements IAlive{
 	protected  boolean collisionWithTile(int x, int y) {
         return BoulderDashModel.getWorld().getTile(x, y).isSolid();
     }
-	/*public void die(){
-		Move as an other class
-	}*/
-	/*public Direction getDirection(){
-		return null;
-		delett
-	}*/
-	/*public void setDirection(Direction direction){
-		delet to
-	}*/
-}rtgdrt
+	
+}
