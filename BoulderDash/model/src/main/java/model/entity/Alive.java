@@ -18,7 +18,20 @@ public abstract class Alive implements IAlive{
 	protected float x, y; // position
     protected int width, height; // size
 	 
+    //Getters and Setters
+    public float getX() { return x;}
+    public void setX(float x) { this.x = x; }
 
+    public float getY() { return y; }
+    public void setY(float y) { this.y = y; }
+
+    public int getWidth() { return width; }
+    public void setWidth(int width) { this.width = width; }
+
+    public int getHeight() { return height; }
+    public void setHeight(int height) { this.height = height; }
+    
+    // Constructor
 	public Alive(BoulderDashModel boulderDashModel, float x, float y, int width, int height) {
         this.boulderDashModel = boulderDashModel;
         this.x = x;
@@ -72,14 +85,14 @@ public abstract class Alive implements IAlive{
 	protected  boolean collisionWithTile(int x, int y) {
         return BoulderDashModel.getWorld().getTile(x, y).isSolid();
     }
-	public void die(){
-		
-	}
-	public Direction getDirection(){
+	/*public void die(){
+		Move as an other class
+	}*/
+	/*public Direction getDirection(){
 		return null;
-		
-	}
-	public void setDirection(Direction direction){
-		
-	}
+		delett
+	}*/
+	/*public void setDirection(Direction direction){
+		delet to
+	}*/
 }
