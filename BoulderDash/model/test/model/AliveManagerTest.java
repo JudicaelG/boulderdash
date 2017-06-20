@@ -50,7 +50,7 @@ public class AliveManagerTest {
 
 	@Test
 	public void testGetalive() {
-		final ArrayList<Alive> alive expected = ArrayList<Alive> alive;
+		final ArrayList<Alive> expected = ArrayList<Alive> alive;
 		final AliveManager aliveManager = new AliveManager(boulderDashModel, player);
 		assertEquals(expected, aliveManager.getalive());
 	}
