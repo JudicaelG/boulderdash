@@ -1,5 +1,7 @@
 package model.entity;
 
+
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import model.BoulderDashModel;
@@ -83,7 +85,9 @@ public abstract class Alive implements IAlive{
         }
 	}
 	protected  boolean collisionWithTile(int x, int y) {
-        return BoulderDashModel.getWorld().getTile(x, y).isSolid();
+        return BoulderDashModel.getMap().getTile(x, y).isSolid();
     }
+	public abstract void tick();
+	public abstract void render(Graphics g);
 	
-}
+} //LESS THAN 100 LINES HAHA

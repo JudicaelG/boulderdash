@@ -1,5 +1,9 @@
 package model.entity;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
 import model.Assets;
 import model.BoulderDashModel;
   //Bug because I need View
@@ -38,7 +42,7 @@ public class Player extends Alive {
         // Movement
         getInput();
         move();
-        boulderDashModel.getCamera().centerOnEntity(this);
+        BoulderDashModel.getCamera().centerOnEntity(this);
     }
     private void getInput() {
         xMove = 0;
@@ -53,46 +57,21 @@ public class Player extends Alive {
         if (boulderDashModel.getKeyManager().left) { xMove = -SPEED; }
         if (boulderDashModel.getKeyManager().right) { xMove = SPEED; }
     }
-	public void dig(Direction direction){
-		
-	}
-	public void push (Direction direction){
-		
-	}
-	public void pickUp(){
-		
-	}
-	public void leave(){
-		
-	}
+    private BufferedImage getCurrentAnimation() {
+        if( xMove < 0) { return anim_PlayerLeft.getCurrentFrame(); }
+        else if( xMove > 0) { return anim_PlayerRight.getCurrentFrame(); }
+        else if( yMove < 0) { return anim_PlayerUp.getCurrentFrame(); }
+        else if( yMove > 0) { return anim_PlayerDown.getCurrentFrame(); }
+        else { return anim_PlayerAFK.getCurrentFrame();}
+    }
 
-	@Override
-	public void xMove(Direction direction) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void yMove(Direction direction) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void die() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Direction getDirection() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setDirection(Direction direction) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+    public void render(Graphics g) {
+        g.drawImage(getCurrentAnimation(), (int)(x - BoulderDashModel.getCamera().getxOffset()), (int)(y - BoulderDashModel.getCamera().getyOffset()), width, height, null);
 }
+}
+
+	
+	
+
+

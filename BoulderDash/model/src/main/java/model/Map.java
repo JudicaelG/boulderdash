@@ -29,7 +29,7 @@ public class Map implements IMap {
 	public Map(BoulderDashModel boulderDashModel, String path) {
 	    this.boulderDashModel = boulderDashModel;
 	    aliveManager = new AliveManager(boulderDashModel, new Player(boulderDashModel, 0, 0));
-	    aliveManager.addEntity(new Rock(boulderDashModel, 256, 256));
+	    aliveManager.addAlive(new Rock(boulderDashModel, 256, 256));
 
 	    loadWorld(path);
 

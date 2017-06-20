@@ -4,53 +4,52 @@ package model;
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.text.html.parser.Entity;
-
+import model.entity.Alive;
 import model.entity.Player;
 
 public class AliveManager {
 // ATTRIBUTES
     private BoulderDashModel boulderDashModel;
-    private Player player;
-    private ArrayList<Entity> entities;
+    private static Player player;
+    private ArrayList<Alive> alive;
 
 
 // GETTERS AND SETTERS
     public BoulderDashModel getHandler() { return boulderDashModel; }
-    public void setHandler(BoulderDashModel boulderDashModel) { this.boulderDashModel = boulderDashModel; }
+    public void setBoulderDashModel(BoulderDashModel boulderDashModel) { this.boulderDashModel = boulderDashModel; }
 
-    public Player getPlayer() { return player; }
-    public void setPlayer(Player player) { this.player = player; }
+    public static Player getPlayer() { return player; }
+    public void setPlayer(Player player) { AliveManager.player = player; }
 
-    public ArrayList<Entity> getEntities() { return entities; }
-    public void setEntities(ArrayList<Entity> entities) { this.entities = entities; }
+    public ArrayList<Alive> getalive() { return alive; }
+    public void setalive(ArrayList<Alive> alive) { this.alive = alive; }
 
 
 // CONSTRUCTOR
     public AliveManager(BoulderDashModel boulderDashModel, Player player) {
         this.boulderDashModel = boulderDashModel;
-        this.player = player;
-        entities = new ArrayList<Entity>();
+        AliveManager.player = player;
+        alive = new ArrayList<Alive>();
     }
 
 
 // METHODS
     public void tick() {
-        for (int i = 0; i < entities.size(); i++) {
-            Entity e = entities.get(i);
+        for (int i = 0; i < alive.size(); i++) {
+            Alive e = alive.get(i);
             e.tick();
         }
         player.tick();
     }
 
     public void render(Graphics g) {
-        for (Entity e : entities) {
+        for (Alive e : alive) {
             e.render(g);
         }
         player.render(g);
     }
 
-    public void addEntity(Entity e) {
-        entities.add(e);
+    public void addAlive(Alive e) {
+        alive.add(e);
     }
 }
