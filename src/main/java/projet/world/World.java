@@ -5,9 +5,7 @@ import projet.Utils;
 import projet.entitites.Entity;
 import projet.entitites.EntityManager;
 import projet.entitites.characters.Player;
-import projet.entitites.statics.Mud;
-import projet.entitites.statics.MudNone;
-import projet.entitites.statics.Rock;
+import projet.entitites.statics.*;
 import projet.tiles.Tile;
 
 import java.awt.*;
@@ -45,7 +43,12 @@ public class World {
             for (int i = 0; i < width; i++) {
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 2) { entityManager.addEntity(new MudNone(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 3) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 5) { entityManager.addEntity(new Door(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 6) { entityManager.addEntity(new Weird(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 7) { entityManager.addEntity(new SpecialWall(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 8) { entityManager.addEntity(new Monster(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
             }
         }
         entityManager.getPlayer().setX(spawnX);

@@ -9,7 +9,12 @@ public class Tile {
     public static Tile wallTile = new WallTile(0);
     public static Tile mudTile = new MudTile(1);
     public static Tile mud_noneTile = new MudNoneTile(2);
-    public static Tile rockTile = new RockTile(3);
+    public static Tile rockTile = new RockTile(4);
+    public static Tile diamondTile = new DiamondTile(3);
+    public static Tile doorTile = new DoorTile(5);
+    public static Tile weirdTile = new WeirdTile(6);
+    public static Tile specialWallTile = new SpecialWallTile(7);
+    public static Tile monsterTile = new MonsterTile(8);
 
 // ATTRIBUTES
     public static final int TILEWIDTH = 48;

@@ -2,6 +2,8 @@ package projet.entitites.characters;
 
 import projet.Handler;
 import projet.entitites.Entity;
+import projet.entitites.statics.Mud;
+import projet.entitites.statics.StaticEntity;
 import projet.tiles.Tile;
 
 public abstract class Character extends Entity {
@@ -36,8 +38,8 @@ public abstract class Character extends Entity {
 
 // METHODS
     public void move() {
-        moveX();
-        moveY();
+        if (!checkEntityCollision(xMove, 0f)) { moveX(); }
+        if (!checkEntityCollision(0f, yMove)) { moveY(); }
     }
 
     public void moveX() { // t = temp

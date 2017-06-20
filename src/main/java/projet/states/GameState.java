@@ -1,7 +1,6 @@
 package projet.states;
 
 import projet.Handler;
-import projet.entitites.characters.Player;
 import projet.world.World;
 
 import java.awt.*;
@@ -14,7 +13,7 @@ public class GameState extends State {
     // CONSTRUCTOR
     public GameState(Handler handler) {
         super(handler);
-        world = new World(handler, "res/worlds/world1.txt");
+        world = new World(handler, "res/worlds/niveau_1.txt");
         handler.setWorld(world);
         handler.getCamera().move(0, 0);
     }
