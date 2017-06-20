@@ -60,8 +60,8 @@ public class Player extends Character {
         xMove = 0;
         yMove = 0;
 
-        if (handler.getKeyManager().up) { yMove = -speed; }
-        if (handler.getKeyManager().down) {yMove = speed; }
+        if (handler.getKeyManager().up) { yMove = -speed;  }
+        if (handler.getKeyManager().down) { yMove = speed; }
         if (handler.getKeyManager().left) { xMove = -speed; }
         if (handler.getKeyManager().right) { xMove = speed; }
     }

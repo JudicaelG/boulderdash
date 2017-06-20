@@ -23,5 +23,5 @@ public class Diamond extends StaticEntity {
     }
 
     @Override
-    public boolean collectableEntity() { return true;}
+    public boolean collectableEntity() { return true; }
 }

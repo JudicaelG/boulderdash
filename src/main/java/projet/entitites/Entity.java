@@ -54,6 +54,7 @@ public abstract class Entity {
     public boolean checkEntityCollision(float xOffset, float yOffset) {
         for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
             if (e.equals(this) || !e.solidEntity()) { continue; }
+
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
                 if (e.breakableEntity() || e.collectableEntity()) { e.active = false; }
                 return true;

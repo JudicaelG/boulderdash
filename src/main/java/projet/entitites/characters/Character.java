@@ -8,7 +8,7 @@ import projet.tiles.Tile;
 
 public abstract class Character extends Entity {
 // ATTRIBUTES
-    public static final float DEFAULT_SPEED = 5.0f;
+    public static final float DEFAULT_SPEED = 48;
     public static final int DEFAULT_CHARACTER_WIDTH = 48;
     public static final int DEFAULT_CHARACTER_HEIGHT = 48;
 
@@ -48,7 +48,6 @@ public abstract class Character extends Entity {
 
             if(!collisionWithTile(tx, (int)(y + bounds.y) / Tile.TILEHEIGHT) && !collisionWithTile(tx, (int)(y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
                 x += xMove;
-                System.out.println(xMove);
             } else {
                 x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x; // -1 needed or the player is stuck
             }
