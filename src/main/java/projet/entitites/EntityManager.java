@@ -2,16 +2,17 @@ package projet.entitites;
 
 import projet.Handler;
 import projet.entitites.characters.Player;
+import projet.entitites.statics.MudNone;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class EntityManager {
 // ATTRIBUTES
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
-
 
 // GETTERS AND SETTERS
     public Handler getHandler() { return handler; }
@@ -38,6 +39,11 @@ public class EntityManager {
         for (int i = 0; i < entities.size(); i++) {
             Entity e = entities.get(i);
             e.tick();
+            if(!e.isActive()) {
+                float x = e.getX();
+                float y = e.getY();
+                entities.set(i, new MudNone(handler, x, y));
+            }
         }
     }
 
@@ -45,6 +51,7 @@ public class EntityManager {
         for (Entity e : entities) {
             e.render(g);
         }
+        player.render(g);
     }
 
     public void addEntity(Entity e) {

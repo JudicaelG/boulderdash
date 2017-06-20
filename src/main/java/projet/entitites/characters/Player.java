@@ -3,9 +3,11 @@ package projet.entitites.characters;
 import projet.Handler;
 import projet.graphics.Animation;
 import projet.graphics.Assets;
+import projet.tiles.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.concurrent.TimeUnit;
 
 public class Player extends Character {
 // ANIMATIONS
@@ -23,10 +25,10 @@ public class Player extends Character {
         super(handler, x,y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
 
         //HITBOX
-        bounds.x = 0;
-        bounds.y = 0;
-        bounds.width = 47;
-        bounds.height = 47;
+        bounds.x = 4;
+        bounds.y = 4;
+        bounds.width = 42;
+        bounds.height = 42;
 
 
         // Animations
@@ -68,7 +70,13 @@ public class Player extends Character {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimation(), (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
 
-        /* HITBOX g.setColor(Color.red);
-        g.fillRect((int)(x + bounds.x - handler.getCamera().getxOffset()), (int)(y + bounds.y - handler.getCamera().getyOffset()), bounds.width, bounds.height);*/
+        //HITBOX
+        g.setColor(Color.red);
+        g.fillRect((int)(x + bounds.x - handler.getCamera().getxOffset()), (int)(y + bounds.y - handler.getCamera().getyOffset()), bounds.width, bounds.height);
+    }
+
+    @Override
+    public boolean solidEntity() {
+        return false;
     }
 }

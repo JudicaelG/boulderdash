@@ -1,10 +1,12 @@
 package projet.entitites.statics;
 
 import projet.Handler;
+import projet.entitites.Entity;
 import projet.graphics.Assets;
 import projet.tiles.Tile;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Mud extends StaticEntity {
 
@@ -20,5 +22,10 @@ public class Mud extends StaticEntity {
     @Override
     public void render(Graphics g) {
         g.drawImage(Assets.mud, (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
+    }
+
+    @Override
+    public boolean breakableEntity() {
+        return true;
     }
 }

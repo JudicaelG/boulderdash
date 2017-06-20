@@ -16,7 +16,7 @@ public class World {
 // ATTRIBUTES
     private Handler handler;
     private int width, height;
-    private int spawnX, spawnY;
+    public int spawnX, spawnY;
     private int[][] tiles;
 
     // Entities
@@ -53,7 +53,7 @@ public class World {
         }
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
-        entityManager.addEntity(new Player(handler, 144, 144));
+        //entityManager.addEntity(new Player(handler, spawnX, spawnY));
     }
 
 
@@ -71,9 +71,9 @@ public class World {
 
         // display
         for (int y = yStart; y < yEnd; y++) {
-            for (int x = xStart; x < xEnd; x++) {
-                getTile(x, y).render(g, (int)(x * Tile.TILEWIDTH - handler.getCamera().getxOffset()), (int)(y * Tile.TILEHEIGHT - handler.getCamera().getyOffset()));
-            }
+        for (int x = xStart; x < xEnd; x++) {
+            getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getCamera().getxOffset()), (int) (y * Tile.TILEHEIGHT - handler.getCamera().getyOffset()));
+        }
         }
         entityManager.render(g);
 

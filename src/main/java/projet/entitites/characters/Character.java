@@ -48,6 +48,7 @@ public abstract class Character extends Entity {
 
             if(!collisionWithTile(tx, (int)(y + bounds.y) / Tile.TILEHEIGHT) && !collisionWithTile(tx, (int)(y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
                 x += xMove;
+                System.out.println(xMove);
             } else {
                 x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH - bounds.x; // -1 needed or the player is stuck
             }

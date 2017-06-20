@@ -1,18 +1,26 @@
 package projet.entitites;
 
 import projet.Handler;
+import projet.entitites.statics.Diamond;
 
 import java.awt.*;
 
 public abstract class Entity {
-    // ATTRIBUTES
+// ATTRIBUTES
     protected Handler handler;
     protected float x, y; // position
     protected int width, height; // size
     protected Rectangle bounds;
 
+// ENTITY INTERACTION
+    protected boolean active = true;
+    public boolean isActive() {return active;}
+    protected boolean solidEntity() { return true; };
+    protected boolean breakableEntity() { return false; }
+    protected boolean collectableEntity() { return false;}
 
-    // GETTERS AND SETTERS
+
+// GETTERS AND SETTERS
     public float getX() { return x;}
     public void setX(float x) { this.x = x; }
 
@@ -25,7 +33,8 @@ public abstract class Entity {
     public int getHeight() { return height; }
     public void setHeight(int height) { this.height = height; }
 
-    // CONSTRUCTOR
+
+// CONSTRUCTOR
     public Entity(Handler handler, float x, float y, int width, int height) {
         this.handler = handler;
         this.x = x;
@@ -36,13 +45,19 @@ public abstract class Entity {
         bounds = new Rectangle(0, 0, width, height);
     }
 
+
+// METHODS
     public abstract void tick();
     public abstract void render(Graphics g);
 
+
     public boolean checkEntityCollision(float xOffset, float yOffset) {
         for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-            if (e.equals(this)) { continue; }
-            if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset))) { return true; }
+            if (e.equals(this) || !e.solidEntity()) { continue; }
+            if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
+                if (e.breakableEntity() || e.collectableEntity()) { e.active = false; }
+                return true;
+            }
         }
         return false;
     }

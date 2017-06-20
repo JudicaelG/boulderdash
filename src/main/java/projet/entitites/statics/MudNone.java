@@ -21,4 +21,9 @@ public class MudNone extends StaticEntity {
     public void render(Graphics g) {
         g.drawImage(Assets.mud_none, (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
     }
+
+    @Override
+    public boolean solidEntity() {
+        return false;
+    }
 }
