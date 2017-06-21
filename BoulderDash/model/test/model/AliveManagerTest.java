@@ -40,15 +40,14 @@ public class AliveManagerTest {
 	@Test
 	public void testGetHandler() {
 		final BoulderDashModel expected = boulderDashModel;
-		assertEquals(expected, aliveManager.getHandler());
+		assertEquals(expected, this.aliveManager.getHandler());
 	}
 
 	@Test
 	public void testGetPlayer() {
 		final Player expected = player;
-		assertEquals(expected, aliveManager.getPlayer());
+		assertEquals(expected, this.aliveManager.getPlayer());
 	}
-
 	
 	@Test
 	public void excepHandler()
