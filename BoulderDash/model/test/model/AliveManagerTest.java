@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import model.entity.Alive;
 import model.entity.Player;
+//Test AliveManager
 
 public class AliveManagerTest {
 
