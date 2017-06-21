@@ -12,10 +12,11 @@ public class Map implements IMap {
 	public Map(){
 		
 	}
-	 public BoulderDashModel boulderDashModel;
-	 private int width, height;
+	 public static BoulderDashModel boulderDashModel;
+	 private static  int width;
+	private static  int height; // boulderDashModel width height STATIC HERE TAKE CARE
 	 private int spawnX, spawnY;
-	 private int[][] tiles;
+	 private static int[][] tiles;
 
 	 // Entities
 	 private AliveManager aliveManager;
@@ -27,7 +28,7 @@ public class Map implements IMap {
 
 	// CONSTRUCTOR
 	public Map(BoulderDashModel boulderDashModel, String path) {
-	    this.boulderDashModel = boulderDashModel;
+	    Map.boulderDashModel = boulderDashModel;
 	    aliveManager = new AliveManager(boulderDashModel, new Player(boulderDashModel, 0, 0));
 	    aliveManager.addAlive(new Rock(boulderDashModel, 256, 256));
 
@@ -39,11 +40,11 @@ public class Map implements IMap {
 
 
 	// METHODS
-	public void tick() {
+	public static void tick() { // FORCER DE METTRE STATIC
 	    AliveManager.tick();
 	}
 
-	public void render(Graphics g) {
+	public static void render(Graphics g) { //ICI AUSSI LOL
 	   // rendering efficiency (renders only tiles the player can see)
 	   int xStart = (int)Math.max(0, boulderDashModel.getCamera().getxOffset() / Tile.TILEWIDTH);
 	   int xEnd = (int)Math.min(width, (boulderDashModel.getCamera().getxOffset() + boulderDashModel.getWidth()) / Tile.TILEWIDTH + 1);
@@ -61,7 +62,7 @@ public class Map implements IMap {
 	   AliveManager.render(g);
 	}
 
-	public Tile getTile(int x, int y) {
+	public static Tile getTile(int x, int y) {
 	   if (x < 0 || y < 0 || x>= width || y >= height) { return Tile.mudTile; }
 
 	   	Tile t = Tile.tiles[tiles[x][y]];

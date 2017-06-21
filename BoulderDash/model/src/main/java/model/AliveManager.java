@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 import model.entity.Alive;
 import model.entity.Player;
+import model.entity.Rock;
 
 public class AliveManager {
 // ATTRIBUTES
     private BoulderDashModel boulderDashModel;
     private static Player player;
-    private ArrayList<Alive> alive;
+    private static ArrayList<Alive> alive;
 
 
 // GETTERS AND SETTERS
@@ -34,7 +35,7 @@ public class AliveManager {
 
 
 // METHODS
-    public void tick() {
+    public static void tick() {
         for (int i = 0; i < alive.size(); i++) {
             Alive e = alive.get(i);
             e.tick();
@@ -42,7 +43,7 @@ public class AliveManager {
         player.tick();
     }
 
-    public void render(Graphics g) {
+    public static void render(Graphics g) {
         for (Alive e : alive) {
             e.render(g);
         }
@@ -52,4 +53,8 @@ public class AliveManager {
     public void addAlive(Alive e) {
         alive.add(e);
     }
+	public void addAlive(Rock rock) {
+		// TODO Auto-generated method stub
+		
+	}
 }

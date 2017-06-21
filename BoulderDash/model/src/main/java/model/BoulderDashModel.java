@@ -8,9 +8,10 @@ import model.entity.Block;
 
 public class BoulderDashModel {
 	private static Map map;
+	private Game game;
 
-	public BoulderDashModel(){
-		this.GameFrame = game;
+	public BoulderDashModel(Game game){
+		this.game = game;
 	}
 	public ArrayList<Block> getBlock(){
 		return null;
@@ -48,7 +49,7 @@ public class BoulderDashModel {
 		// TODO Auto-generated method stub
 		return map;
 	}
-	public static Object getCamera() {
+	public static Camera getCamera() {  // static must be place here
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -59,6 +60,10 @@ public class BoulderDashModel {
 	public int getHeight() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	public void setMap(Map map) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

@@ -2,9 +2,9 @@ package model;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.lang.Thread.State;
 
-public class Game {
+
+public class Game implements Runnable {
 	 
 	private Display display;
 	    private String title;
@@ -25,7 +25,7 @@ public class Game {
 	    // Camera
 	    private Camera camera;
 
-	    // Handler
+	    // BoulderDashModel
 	    private BoulderDashModel boulderDashModel;
 
 
@@ -54,10 +54,10 @@ public class Game {
 	        display.getFrame().addKeyListener(keyManager);
 	        Assets.init();
 
-	        handler = new Handler(this);
-	        camera = new Camera(handler, 0, 0);
+	        boulderDashModel = new BoulderDashModel(this);
+	        camera = new Camera(boulderDashModel, 0, 0);
 
-	        gameState = new GameState(handler);
+	        gameState = new GameState(boulderDashModel);
 	        State.setState(gameState);
 	    }
 
@@ -133,4 +133,4 @@ public class Game {
 	    }
 	}
 
-}
+
