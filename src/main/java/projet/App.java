@@ -1,5 +1,7 @@
 package projet;
 
+import projet.model.Game;
+
 public class App
 {
     public static void main( String[] args )
