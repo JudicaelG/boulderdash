@@ -15,8 +15,10 @@ import model.entity.Player;
 
 public class AliveManagerTest {
 
-	private static final BoulderDashModel boulderDashModel = null;
-	private static final Player player = null;
+	private BoulderDashModel boulderDashModel;
+	private Player player;
+	private ArrayList<Alive> alive;
+	private AliveManager aliveManager;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -28,6 +30,7 @@ public class AliveManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
+		this.aliveManager = new AliveManager(boulderDashModel, player);
 	}
 
 	@After
@@ -37,22 +40,43 @@ public class AliveManagerTest {
 	@Test
 	public void testGetHandler() {
 		final BoulderDashModel expected = boulderDashModel;
-		final AliveManager aliveManager = new AliveManager(boulderDashModel, player);
 		assertEquals(expected, aliveManager.getHandler());
 	}
 
 	@Test
 	public void testGetPlayer() {
 		final Player expected = player;
-		final AliveManager aliveManager = new AliveManager(boulderDashModel, player);
 		assertEquals(expected, aliveManager.getPlayer());
 	}
 
+	
 	@Test
-	public void testGetalive() {
-		final ArrayList<Alive> expected = ArrayList<Alive> alive;
-		final AliveManager aliveManager = new AliveManager(boulderDashModel, player);
-		assertEquals(expected, aliveManager.getalive());
+	public void excepHandler()
+	{
+		try
+		{
+			new AliveManager(boulderDashModel, player);
+		}
+		catch (final Exception e)
+		{
+			final String expected = "BoulderDashModel out of range";
+			assertEquals(expected, e.getMessage());
+		}
 	}
+	
+	@Test
+	public void excepPlayer()
+	{
+		try
+		{
+			new AliveManager(boulderDashModel, player);
+		}
+		catch (final Exception e)
+		{
+			final String expected = "BoulderDashModel out of range";
+			assertEquals(expected, e.getMessage());
+		}
+	}
+	
 
 }
