@@ -1,23 +1,23 @@
 package projet.model.entities.statics;
 
 import projet.model.Handler;
+import projet.model.Tile;
 import projet.view.Animation;
 import projet.view.Assets;
-import projet.model.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Diamond extends StaticEntity {
+public class Rock extends StaticEntity {
 
-    public Diamond(Handler handler, float x, float y) {
+    public Rock(Handler handler, float x, float y) {
         super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
-        anim_Diamond = new Animation(100, Assets.diamond);
+        anim_Rock = new Animation(100, Assets.rock);
     }
 
     @Override
     public void tick() {
-        anim_Diamond.tick();
+        anim_Rock.tick();
     }
 
     @Override
@@ -26,9 +26,9 @@ public class Diamond extends StaticEntity {
     }
 
     @Override
-    public boolean collectableEntity() { return true; }
+    public boolean testEntity() { return true; }
 
     // Animations
-    private Animation anim_Diamond;
-    private BufferedImage getCurrentAnimation() { return anim_Diamond.getCurrentFrame(); }
+    private Animation anim_Rock;
+    private BufferedImage getCurrentAnimation() { return anim_Rock.getCurrentFrame(); }
 }

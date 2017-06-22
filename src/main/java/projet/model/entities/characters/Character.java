@@ -6,7 +6,7 @@ import projet.model.Tile;
 
 public abstract class Character extends Entity {
 // ATTRIBUTES
-    public static final float DEFAULT_SPEED = 48;
+    public static final float DEFAULT_SPEED = 24;
     public static final int DEFAULT_CHARACTER_WIDTH = 48;
     public static final int DEFAULT_CHARACTER_HEIGHT = 48;
 

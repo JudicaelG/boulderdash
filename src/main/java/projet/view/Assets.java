@@ -6,17 +6,16 @@ public class Assets {
     // ATTRIBUTES
     private static final int SPRITE_SIZE = 16;
 
-    public static BufferedImage wall, mud, mud_none, diamond1, diamond2, door, weird, wall_special, buzzbuzz, puffpuff, star;
-    public static BufferedImage[] rock, player_afk, player_left, player_up, player_right, player_down;
+    public static BufferedImage wall, mud, mud_none, door, weird, wall_special, buzzbuzz, puffpuff, star;
+    public static BufferedImage[] rock, diamond;
+    public static BufferedImage[] player_afk, player_left, player_up, player_right, player_down;
 
     public static void init() {
-        // Decors and Monsters
+    // Decors and Monsters
         SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png"));
         wall =          sheet_DecorsMonsters.crop(0,0,SPRITE_SIZE,SPRITE_SIZE);
         mud =           sheet_DecorsMonsters.crop(SPRITE_SIZE,0,SPRITE_SIZE,SPRITE_SIZE);
         mud_none =      sheet_DecorsMonsters.crop(SPRITE_SIZE*2,0,SPRITE_SIZE,SPRITE_SIZE);
-        diamond1 =      sheet_DecorsMonsters.crop(SPRITE_SIZE*4,0,SPRITE_SIZE,SPRITE_SIZE);
-        diamond2 =      sheet_DecorsMonsters.crop(SPRITE_SIZE*5,0,SPRITE_SIZE,SPRITE_SIZE);
         door =          sheet_DecorsMonsters.crop(SPRITE_SIZE*6,0,SPRITE_SIZE,SPRITE_SIZE);
         weird =         sheet_DecorsMonsters.crop(SPRITE_SIZE*7,0,SPRITE_SIZE,SPRITE_SIZE);
         wall_special =  sheet_DecorsMonsters.crop(SPRITE_SIZE*8,0,SPRITE_SIZE,SPRITE_SIZE);
@@ -24,13 +23,22 @@ public class Assets {
         puffpuff =      sheet_DecorsMonsters.crop(SPRITE_SIZE*10,0,SPRITE_SIZE,SPRITE_SIZE);
         star =          sheet_DecorsMonsters.crop(SPRITE_SIZE*11,0,SPRITE_SIZE,SPRITE_SIZE);
 
+        // rock
         rock = new BufferedImage[4];
         rock[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*3, 0, SPRITE_SIZE, SPRITE_SIZE);
         rock[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
         rock[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*3, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
         rock[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*3, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
 
-        // Player
+        // diamond
+        diamond = new BufferedImage[4];
+        diamond[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, 0, SPRITE_SIZE, SPRITE_SIZE);
+        diamond[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        diamond[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
+        diamond[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
+
+
+    // Player
         SpriteSheet sheet_Player = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_Player.png"));
 
         player_afk = new BufferedImage[2];

@@ -18,7 +18,7 @@ public abstract class Entity {
     protected boolean solidEntity() { return true; };
     protected boolean breakableEntity() { return false; }
     protected boolean collectableEntity() { return false; }
-    protected boolean testEntity() { return false; }
+    public boolean testEntity() { return false; }
 
 
 // GETTERS AND SETTERS
