@@ -69,6 +69,7 @@ public class AliveManagerTest {
 		try
 		{
 			new AliveManager(boulderDashModel, player);
+			//one comment
 		}
 		catch (final Exception e)
 		{
