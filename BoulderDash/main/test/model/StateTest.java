@@ -8,7 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class StateTest {
+public abstract class StateTest {
+	
+	abstract State createState(Handler handler);
+	private Handler handler;
+	private State state;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,6 +24,7 @@ public class StateTest {
 
 	@Before
 	public void setUp() throws Exception {
+		State state = createState(handler);
 	}
 
 	@After
@@ -28,7 +33,9 @@ public class StateTest {
 
 	@Test
 	public void testGetState() {
-		fail("Not yet implemented");
+		final Handler expected = handler;
+		assertEquals(expected, this.state.getState());
 	}
 
 }
+
