@@ -1,4 +1,4 @@
-package projet.view.display;
+package view.display;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
