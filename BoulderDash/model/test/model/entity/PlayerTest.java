@@ -50,8 +50,7 @@ public class PlayerTest{
 	{
 		try 
 		{
-			new Player(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x < 0");
+			new Player(boulderDashModel, 0, 1);
 		}
 		catch (final Exception e)
 		{
@@ -66,8 +65,7 @@ public class PlayerTest{
 	{
 		try 
 		{
-			new Player(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x > 50");
+			new Player(boulderDashModel, 1, 50);
 		}
 		catch (final Exception e)
 		{
@@ -82,8 +80,7 @@ public class PlayerTest{
 	{
 		try 
 		{
-			new Player(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x < 0");
+			new Player(boulderDashModel, 0, 1);
 		}
 		catch (final Exception e)
 		{
@@ -98,8 +95,7 @@ public class PlayerTest{
 	{
 		try 
 		{
-			new Player(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x > 50");
+			new Player(boulderDashModel, 1, 50);
 		}
 		catch (final Exception e)
 		{
@@ -108,5 +104,6 @@ public class PlayerTest{
 		}
 		
 	}
+
 
 }
