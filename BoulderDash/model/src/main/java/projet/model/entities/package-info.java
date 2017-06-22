@@ -5,4 +5,4 @@
  * @author Arthur Wolff Exia
  *
  */
-package model.entities.statics;
+package projet.model.entities;
