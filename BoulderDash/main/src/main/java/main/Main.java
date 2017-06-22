@@ -2,8 +2,7 @@ package main;
 
 import java.sql.SQLException;
 
-import controller.ControllerFacade;
-
+import model.Game;
 import view.ViewFacade;
 
 /**
@@ -20,4 +19,7 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
-    public static void main(final String[] args) {  }}
+    public static void main(final String[] args) { 
+            Game game = new Game("Boulder Dash", 768, 768);
+            game.start();
+    }}
