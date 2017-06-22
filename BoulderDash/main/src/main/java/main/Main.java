@@ -2,7 +2,7 @@ package main;
 
 import java.sql.SQLException;
 
-import model.Game;
+import projet.model.Game;
 import view.ViewFacade;
 
 /**
