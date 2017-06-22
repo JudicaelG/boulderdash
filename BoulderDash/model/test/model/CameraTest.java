@@ -50,7 +50,6 @@ public class CameraTest {
 		try 
 		{
 			new Camera(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x < 0");
 		}
 		catch (final Exception e)
 		{
@@ -66,7 +65,6 @@ public class CameraTest {
 		try 
 		{
 			new Camera(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x > 50");
 		}
 		catch (final Exception e)
 		{
@@ -82,7 +80,6 @@ public class CameraTest {
 		try 
 		{
 			new Camera(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x < 0");
 		}
 		catch (final Exception e)
 		{
@@ -98,7 +95,6 @@ public class CameraTest {
 		try 
 		{
 			new Player(boulderDashModel, 0, 50);
-			//fail ("Should throw exception when x > 50");
 		}
 		catch (final Exception e)
 		{
