@@ -12,7 +12,7 @@ public class Assets {
 
     public static void init() {
     // Decors and Monsters
-        SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/res/textures/sprites_DecorsMonsters.png"));
+        SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png"));
         wall =          sheet_DecorsMonsters.crop(0,0,SPRITE_SIZE,SPRITE_SIZE);
         mud =           sheet_DecorsMonsters.crop(SPRITE_SIZE,0,SPRITE_SIZE,SPRITE_SIZE);
         mud_none =      sheet_DecorsMonsters.crop(SPRITE_SIZE*2,0,SPRITE_SIZE,SPRITE_SIZE);
