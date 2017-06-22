@@ -8,9 +8,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import controller.KeyManager;
+import view.Camera;
+
 public class HandlerTest {
 	
+	private Handler handler;
 	private Game game;
+	private World world;
+	private KeyManager keyManager;
+	private Camera camera;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,41 +29,36 @@ public class HandlerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.game = new Game(game);
+		this.handler = new Handler(game);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testGetGame() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetWorld() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testGetWidth() {
-		fail("Not yet implemented");
+		final int expected = 4;
+		assertEquals(expected, this.game.getWidth());
 	}
 
 	@Test
 	public void testGetHeight() {
-		fail("Not yet implemented");
+		final int expected = 4;
+		assertEquals(expected, this.game.getWidth());
 	}
 
 	@Test
 	public void testGetKeyManager() {
-		fail("Not yet implemented");
+		final KeyManager expected = keyManager;
+		assertEquals(expected, this.game.getKeyManager());
 	}
 
 	@Test
 	public void testGetCamera() {
-		fail("Not yet implemented");
+		final Camera expected = camera;
+		assertEquals(expected, this.game.getCamera());
 	}
 
 }
