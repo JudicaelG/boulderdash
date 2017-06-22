@@ -1,8 +1,9 @@
 package main;
 
+import model.Game;
+
 import java.sql.SQLException;
 
-import projet.model.Game;
 import view.ViewFacade;
 
 /**
