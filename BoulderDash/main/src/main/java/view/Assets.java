@@ -70,35 +70,35 @@ public class Assets {
         
         
         
-        SpriteSheet sheet_butterfly = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMounsters.png")); 
+        SpriteSheet sheet_butterfly = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
 		butterfly = new BufferedImage[5];
 		butterfly[0] = sheet_butterfly.crop(SPRITE_SIZE*10,             0, SPRITE_SIZE, SPRITE_SIZE);
 		butterfly[1] = sheet_butterfly.crop(SPRITE_SIZE*10,   SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
 		butterfly[2] = sheet_butterfly.crop(SPRITE_SIZE*10, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
 		butterfly[3] = sheet_butterfly.crop(SPRITE_SIZE*10, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
 	
-		SpriteSheet sheet_bat = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMounsters.png")); 
+		SpriteSheet sheet_bat = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
 		bat = new BufferedImage[6];
 		bat[0] = sheet_bat.crop(SPRITE_SIZE*10,             0, SPRITE_SIZE, SPRITE_SIZE);
 		bat[1] = sheet_bat.crop(SPRITE_SIZE*10,   SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
 		bat[2] = sheet_bat.crop(SPRITE_SIZE*10, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
 		bat[3] = sheet_bat.crop(SPRITE_SIZE*10, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
 		
-		SpriteSheet sheet_squid = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMounsters.png")); 
+		SpriteSheet sheet_squid = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
 		squid = new BufferedImage[7];
 		squid[0] = sheet_squid.crop(SPRITE_SIZE*10,SPRITE_SIZE*12, SPRITE_SIZE, SPRITE_SIZE);
 		squid[1] = sheet_squid.crop(SPRITE_SIZE*10,SPRITE_SIZE*13, SPRITE_SIZE, SPRITE_SIZE);
 		squid[2] = sheet_squid.crop(SPRITE_SIZE*10,SPRITE_SIZE*14, SPRITE_SIZE, SPRITE_SIZE);
 		squid[3] = sheet_squid.crop(SPRITE_SIZE*10,SPRITE_SIZE*15, SPRITE_SIZE, SPRITE_SIZE);
 		
-		SpriteSheet sheet_spider = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMounsters.png")); 
+		SpriteSheet sheet_spider = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
 		spider = new BufferedImage[8];
 		spider[0] = sheet_spider.crop(SPRITE_SIZE*9,SPRITE_SIZE*20, SPRITE_SIZE, SPRITE_SIZE);
 		spider[1] = sheet_spider.crop(SPRITE_SIZE*9,SPRITE_SIZE*21, SPRITE_SIZE, SPRITE_SIZE);
 		spider[2] = sheet_spider.crop(SPRITE_SIZE*9,SPRITE_SIZE*22, SPRITE_SIZE, SPRITE_SIZE);
 		spider[3] = sheet_spider.crop(SPRITE_SIZE*9,SPRITE_SIZE*23, SPRITE_SIZE, SPRITE_SIZE);
 		
-		SpriteSheet sheet_wild_man = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMounsters.png")); 
+		SpriteSheet sheet_wild_man = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
 		wild_man = new BufferedImage[9];
 		wild_man[0] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*16, SPRITE_SIZE, SPRITE_SIZE);
 		wild_man[1] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*17, SPRITE_SIZE, SPRITE_SIZE);
