@@ -1,4 +1,4 @@
-package model.entity;
+package projet.model.entities.characters;
 
 import projet.model.Handler;
 import projet.model.entities.Entity;

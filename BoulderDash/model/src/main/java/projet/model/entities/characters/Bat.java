@@ -1,4 +1,4 @@
-package model.entity;
+package projet.model.entities.characters;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
