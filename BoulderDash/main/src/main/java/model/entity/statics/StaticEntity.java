@@ -1,7 +1,7 @@
-package projet.model.entities.statics;
+package model.entity.statics;
 
-import projet.model.Handler;
-import projet.model.entities.Entity;
+import model.Handler;
+import model.entity.Entity;
 
 public abstract class StaticEntity extends Entity {
     public StaticEntity(Handler handler, float x, float y, int width, int height) {

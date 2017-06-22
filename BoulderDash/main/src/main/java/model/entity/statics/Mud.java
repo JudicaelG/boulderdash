@@ -1,8 +1,8 @@
-package projet.model.entities.statics;
+package model.entity.statics;
 
-import projet.model.Handler;
-import projet.view.Assets;
-import projet.model.Tile;
+import model.Handler;
+import view.Assets;
+import model.Tile;
 
 import java.awt.*;
 

@@ -1,9 +1,9 @@
-package projet.model.entities.statics;
+package model.entity.statics;
 
-import projet.model.Handler;
-import projet.model.Tile;
-import projet.view.Animation;
-import projet.view.Assets;
+import model.Handler;
+import model.Tile;
+import view.Animation;
+import view.Assets;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
