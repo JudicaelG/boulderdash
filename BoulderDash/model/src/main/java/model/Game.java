@@ -1,136 +1,139 @@
 package model;
 
-import java.awt.Graphics;
+import view.display.*;
+import view.Assets;
+import view.Camera;
+import controller.KeyManager;
+
+import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.lang.Thread.State;
 
-public class Game {
-	 
-	private Display display;
-	    private String title;
-	    private int width, height;
+public class Game implements Runnable {
+// ATTRIBUTES
+    // base
+    private Display display;
+    private String title;
+    private int width, height;
 
-	    private boolean running = false;
-	    private Thread thread;
+    private boolean running = false;
+    private Thread thread;
 
-	    private BufferStrategy bs;
-	    private Graphics g;
+    private BufferStrategy bs;
+    private Graphics g;
 
-	    // States
-	    private State gameState;
+    // States
+    private State gameState;
 
-	    // Input
-	    private KeyManager keyManager;
+    // Input
+    private KeyManager keyManager;
 
-	    // Camera
-	    private Camera camera;
+    // Camera
+    private Camera camera;
 
-	    // Handler
-	    private BoulderDashModel boulderDashModel;
-
-
-	// GETTERS AND SETTERS
-	    public int getWidth() { return width; }
-	    public int getHeight() { return height; }
-
-	    public KeyManager getKeyManager() {
-	        return keyManager;
-	    }
-	    public Camera getCamera() { return camera; }
+    // Handler
+    private Handler handler;
 
 
-	// CONSTRUCTOR
-	    public Game(String title, int width, int height) {
-	        this.title = title;
-	        this.width = width;
-	        this.height = height;
-	        keyManager = new KeyManager();
-	    }
+// GETTERS AND SETTERS
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
+
+    public KeyManager getKeyManager() {
+        return keyManager;
+    }
+    public Camera getCamera() { return camera; }
 
 
-	// METHODS
-	    private void init() {
-	        display = new Display(title, width, height);
-	        display.getFrame().addKeyListener(keyManager);
-	        Assets.init();
+// CONSTRUCTOR
+    public Game(String title, int width, int height) {
+        this.title = title;
+        this.width = width;
+        this.height = height;
+        keyManager = new KeyManager();
+    }
 
-	        handler = new Handler(this);
-	        camera = new Camera(handler, 0, 0);
 
-	        gameState = new GameState(handler);
-	        State.setState(gameState);
-	    }
+// METHODS
+    private void init() {
+        display = new Display(title, width, height);
+        display.getFrame().addKeyListener(keyManager);
+        Assets.init();
 
-	    private void tick()  {
-	        keyManager.tick();
+        handler = new Handler(this);
+        camera = new Camera(handler, 0, 0);
 
-	        if(State.getState() != null) {
-	            State.getState().tick(); }
-	    }
+        gameState = new GameState(handler);
+        State.setState(gameState);
+    }
 
-	    private void render() {
-	    // buffers
-	        bs = display.getCanvas().getBufferStrategy();
-	        if(bs == null) {
-	            display.getCanvas().createBufferStrategy(3); // makes the main more fluid
-	            return; }
+    private void tick()  {
+        keyManager.tick();
 
-	    // graphics
-	        g = bs.getDrawGraphics(); // can draw anything
-	        // clear screen
-	        g.clearRect(0,0,width,height);
+        if(State.getState() != null) {
+            State.getState().tick(); }
+    }
 
-	        // draw
-	        if(State.getState() != null) {
-	            State.getState().render(g); }
+    private void render() {
+    // buffers
+        bs = display.getCanvas().getBufferStrategy();
+        if(bs == null) {
+            display.getCanvas().createBufferStrategy(3); // makes the main more fluid
+            return; }
 
-	        bs.show(); // displays the buffer
-	        g.dispose(); // cleans the Frame
-	    }
+    // graphics
+        g = bs.getDrawGraphics(); // can draw anything
+        // clear screen
+        g.clearRect(0,0,width,height);
 
-	    public void run() {
-	        init();
+        // draw
+        if(State.getState() != null) {
+            State.getState().render(g); }
 
-	        int fps = 60; // amount of time the 'tick' and 'render' methods are called per second
-	        double timePerTick = 1000000000 / fps; // maximum amount of time (in nanoseconds) the 'tick' and 'render' methods are executed
-	        double delta = 0; // amount of time until we have to call the 'tick' and 'render' methods again
-	        long now; // current time of the computer
-	        long lastTime = System.nanoTime(); // return the current time of the computer in nanoseconds
-	        long timer = 0; // time until 1 second
-	        int ticks = 0;
+        bs.show(); // displays the buffer
+        g.dispose(); // cleans the Frame
+    }
 
-	        while(running) {
-	            now = System.nanoTime();
-	            delta += (now - lastTime) / timePerTick;
-	            timer += now - lastTime;
-	            lastTime = now;
+    public void run() {
+        init();
 
-	            if (delta >= 1) {
-	                tick();
-	                render();
-	                ticks++;
-	                delta--;
-	            }
-	        }
-	        stop();
-	    }
+        int fps = 30; // amount of time the 'tick' and 'render' methods are called per second
+        double timePerTick = 1000000000 / fps; // maximum amount of time (in nanoseconds) the 'tick' and 'render' methods are executed
+        double delta = 0; // amount of time until we have to call the 'tick' and 'render' methods again
+        long now; // current time of the computer
+        long lastTime = System.nanoTime(); // return the current time of the computer in nanoseconds
+        long timer = 0; // time until 1 second
+        int ticks = 0;
 
-	    public synchronized void start() {
-	        if(running) {return;}
-	        running = true;
-	        thread = new Thread(this);
-	        thread.start();
-	    }
+        while(running) {
+            now = System.nanoTime();
+            delta += (now - lastTime) / timePerTick;
+            timer += now - lastTime;
+            lastTime = now;
 
-	    public synchronized void stop() {
-	        if(!running) {return;}
-	        running = false;
-	        try {
-	            thread.join();
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
-	}
+            if (delta >= 1) {
+                tick();
+                render();
+                ticks++;
+                delta--;
+            }
+        }
+        stop();
+    }
 
+    public synchronized void start() {
+        if(running) {return;}
+        running = true;
+        thread = new Thread(this);
+        thread.start();
+    }
+
+    public synchronized void stop() {
+        if(!running) {return;}
+        running = false;
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

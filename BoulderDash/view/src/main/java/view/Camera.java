@@ -1,7 +1,7 @@
 package view;
 
 import model.Handler;
-import model.entities.Entity;
+import model.entity.Entity;
 import model.Tile;
 
 public class Camera {
