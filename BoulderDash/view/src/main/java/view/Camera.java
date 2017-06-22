@@ -1,8 +1,8 @@
-package projet.view;
+package view;
 
-import projet.model.Handler;
-import projet.model.entities.Entity;
-import projet.model.Tile;
+import model.Handler;
+import model.entities.Entity;
+import model.Tile;
 
 public class Camera {
 // ATTRIBUTES
