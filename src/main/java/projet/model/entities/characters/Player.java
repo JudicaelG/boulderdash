@@ -1,6 +1,9 @@
 package projet.model.entities.characters;
 
+import projet.DiamondScreen;
+import projet.model.GameOverState;
 import projet.model.Handler;
+import projet.model.State;
 import projet.view.Animation;
 import projet.view.Assets;
 
@@ -74,7 +77,8 @@ public class Player extends Character {
     }
 
     public void die() {
-        System.out.println("YOU LOOSE !");
+        State gameOverState = new GameOverState(handler);
+        State.setState(gameOverState);
     }
 
     public boolean isPlayer() { return true;}
@@ -84,7 +88,8 @@ public class Player extends Character {
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimation(), (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
-
+        DiamondScreen diamondScreen = new DiamondScreen();
+        diamondScreen.render(g);
         //HITBOX
         /*g.setColor(Color.red);
         g.fillRect((int)(x + bounds.x - handler.getCamera().getxOffset()), (int)(y + bounds.y - handler.getCamera().getyOffset()), bounds.width, bounds.height);*/

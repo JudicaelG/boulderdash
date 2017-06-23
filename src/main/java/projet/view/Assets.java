@@ -1,19 +1,30 @@
 package projet.view;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Assets {
     // ATTRIBUTES
     private static final int SPRITE_SIZE = 16;
 
+    public static Font roboto;
+
     public static BufferedImage wall, mud, mud_none, door, weird, wall_special, buzzbuzz, puffpuff, star;
     public static BufferedImage[] rock, diamond;
     public static BufferedImage[] butterfly, spider, squid, wild_man, bat;
     public static BufferedImage[] player_afk, player_left, player_up, player_right, player_down;
+    public static BufferedImage diamondScreen, gameOverScreen, winScreen;
 
     public static void init() {
+    // Screens and Fonts
+        //roboto = FontLoader.loadFont("/fonts/RobotoCondensed-Regular.ttf", 12.0);
+        //diamondScreen = ImageLoader.loadImage("/textures/d.png");
+        gameOverScreen = ImageLoader.loadImage("/textures/gameover.png");
+        winScreen = ImageLoader.loadImage("/textures/win.png");
+
+
     // Decors and Monsters
-        SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png"));
+        SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters-Transparent.png"));
         wall =          sheet_DecorsMonsters.crop(0,0,SPRITE_SIZE,SPRITE_SIZE);
         mud =           sheet_DecorsMonsters.crop(SPRITE_SIZE,0,SPRITE_SIZE,SPRITE_SIZE);
         mud_none =      sheet_DecorsMonsters.crop(SPRITE_SIZE*2,0,SPRITE_SIZE,SPRITE_SIZE);
@@ -37,6 +48,36 @@ public class Assets {
         diamond[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
         diamond[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
         diamond[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*4, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
+
+        butterfly = new BufferedImage[4];
+        butterfly[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, 0, SPRITE_SIZE, SPRITE_SIZE);
+        butterfly[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,   SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        butterfly[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
+        butterfly[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
+
+        bat = new BufferedImage[4];
+        bat[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, 0, SPRITE_SIZE, SPRITE_SIZE);
+        bat[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,   SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
+        bat[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, SPRITE_SIZE*2, SPRITE_SIZE, SPRITE_SIZE);
+        bat[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10, SPRITE_SIZE*3, SPRITE_SIZE, SPRITE_SIZE);
+
+        squid = new BufferedImage[4];
+        squid[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*12, SPRITE_SIZE, SPRITE_SIZE);
+        squid[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*13, SPRITE_SIZE, SPRITE_SIZE);
+        squid[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*14, SPRITE_SIZE, SPRITE_SIZE);
+        squid[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*15, SPRITE_SIZE, SPRITE_SIZE);
+
+        spider = new BufferedImage[4];
+        spider[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*9,SPRITE_SIZE*20, SPRITE_SIZE, SPRITE_SIZE);
+        spider[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*9,SPRITE_SIZE*21, SPRITE_SIZE, SPRITE_SIZE);
+        spider[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*9,SPRITE_SIZE*22, SPRITE_SIZE, SPRITE_SIZE);
+        spider[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*9,SPRITE_SIZE*23, SPRITE_SIZE, SPRITE_SIZE);
+
+        wild_man = new BufferedImage[4];
+        wild_man[0] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*16, SPRITE_SIZE, SPRITE_SIZE);
+        wild_man[1] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*17, SPRITE_SIZE, SPRITE_SIZE);
+        wild_man[2] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*18, SPRITE_SIZE, SPRITE_SIZE);
+        wild_man[3] = sheet_DecorsMonsters.crop(SPRITE_SIZE*10,SPRITE_SIZE*19, SPRITE_SIZE, SPRITE_SIZE);
 
 
     // Player
@@ -67,6 +108,7 @@ public class Assets {
         player_down[1] = sheet_Player.crop(SPRITE_SIZE, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         player_down[2] = sheet_Player.crop(SPRITE_SIZE*2, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         player_down[3] = sheet_Player.crop(SPRITE_SIZE*3, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
+<<<<<<< HEAD
         
 
         SpriteSheet sheet_butterfly = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
@@ -105,5 +147,7 @@ public class Assets {
 		wild_man[1] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*17, SPRITE_SIZE, SPRITE_SIZE);
 		wild_man[2] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*18, SPRITE_SIZE, SPRITE_SIZE);
 		wild_man[3] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*19, SPRITE_SIZE, SPRITE_SIZE);
+=======
+>>>>>>> branch 'master' of https://github.com/Ssaphirion/boulderdash
     }
 }

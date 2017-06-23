@@ -10,7 +10,7 @@ public class GameState extends State{
     // CONSTRUCTOR
     public GameState(Handler handler) {
         super(handler);
-        world = new World(handler, "res/worlds/niveau2.1.txt");
+        world = new World(handler, "D:/_PROJET/BoulderDash/res/worlds/niveau2.txt");
         handler.setWorld(world);
         handler.getCamera().move(0, 0);
     }
@@ -27,4 +27,7 @@ public class GameState extends State{
     public void render(Graphics g) {
         world.render(g);
     }
+
+
+
 }
