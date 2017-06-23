@@ -2,6 +2,8 @@ package projet.model.entities;
 
 import projet.model.Handler;
 import projet.model.Score;
+import projet.model.State;
+import projet.model.WinState;
 
 import java.awt.*;
 
@@ -26,7 +28,12 @@ public abstract class Entity {
     public boolean isRock() { return false; }
     public boolean isPlayer() { return false;}
     protected void die() {}
-    protected void win() { if (diamondCount >= 2) {System.out.println("YOU WIN !");} }
+    protected void win() {
+        if (diamondCount >= 5) {
+            State winState = new WinState(handler);
+            State.setState(winState);
+        }
+    }
 
 // GETTERS AND SETTERS
     public float getX() { return x;}
@@ -84,7 +91,6 @@ public abstract class Entity {
                 	e.active = false;
                 	if (e.collectableEntity()){Score.setActScore(Score.getActScore()+10); diamondCount++;System.out.println(Score.getActScore());}		//Works only if there is only diamond giving score. Else we should create a isDiamond bool method or something
                 }
-                
                 return true;
             }
         }

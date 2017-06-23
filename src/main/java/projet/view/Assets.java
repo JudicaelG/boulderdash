@@ -13,12 +13,15 @@ public class Assets {
     public static BufferedImage[] rock, diamond;
     public static BufferedImage[] butterfly, spider, squid, wild_man, bat;
     public static BufferedImage[] player_afk, player_left, player_up, player_right, player_down;
-    public static BufferedImage diamondScreen;
+    public static BufferedImage diamondScreen, gameOverScreen, winScreen;
 
     public static void init() {
     // Screens and Fonts
         //roboto = FontLoader.loadFont("/fonts/RobotoCondensed-Regular.ttf", 12.0);
         //diamondScreen = ImageLoader.loadImage("/textures/d.png");
+        gameOverScreen = ImageLoader.loadImage("/textures/gameover.png");
+        winScreen = ImageLoader.loadImage("/textures/win.png");
+
 
     // Decors and Monsters
         SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters-Transparent.png"));

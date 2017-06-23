@@ -1,7 +1,9 @@
 package projet.model.entities.characters;
 
 import projet.DiamondScreen;
+import projet.model.GameOverState;
 import projet.model.Handler;
+import projet.model.State;
 import projet.view.Animation;
 import projet.view.Assets;
 
@@ -75,7 +77,8 @@ public class Player extends Character {
     }
 
     public void die() {
-        System.out.println("YOU LOOSE !");
+        State gameOverState = new GameOverState(handler);
+        State.setState(gameOverState);
     }
 
     public boolean isPlayer() { return true;}
