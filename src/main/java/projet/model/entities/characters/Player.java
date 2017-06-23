@@ -1,7 +1,6 @@
 package projet.model.entities.characters;
 
 import projet.model.Handler;
-import projet.model.entities.Entity;
 import projet.view.Animation;
 import projet.view.Assets;
 
@@ -53,11 +52,11 @@ public class Player extends Character {
         // Movement
         getInput();
         move();
-        try {
+        /*try {
             Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         handler.getCamera().centerOnEntity(this);
     }
 
@@ -71,35 +70,12 @@ public class Player extends Character {
         if (handler.getKeyManager().right) { xMove = speed; }
     }
 
-
-    private void fall() {
-        Rectangle cb = getCollisionBounds(0, 0);
-        Rectangle ar = new Rectangle();
-        int arSize = 20;
-        ar.width = arSize;
-        ar.height = arSize;
-
-        if (handler.getKeyManager().up) {
-            ar.x = cb.x + cb.width / 2 - arSize / 2;
-            ar.y = cb.y - arSize;
-        } else if (handler.getKeyManager().down) {
-            ar.x = cb.x + cb.width / 2 - arSize / 2;
-            ar.y = cb.y + cb.height;
-        } else if (handler.getKeyManager().left) {
-            ar.x = cb.x - arSize;
-            ar.y = cb.y + cb.height / 2 - arSize / 2;
-        } else if (handler.getKeyManager().right) {
-            ar.x = cb.x + arSize;
-            ar.y = cb.y + cb.height / 2 - arSize / 2;
-        } else { return; }
-
-        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
-            if (e.equals(this)) { continue; }
-            if (e.getCollisionBounds(0, 0).intersects(ar)) {
-                return;
-            }
-        }
+    public void die() {
+        System.out.println("YOU LOOSE !");
     }
+
+    public boolean isPlayer() { return true;}
+
 
     @Override
     public void render(Graphics g) {
@@ -110,8 +86,8 @@ public class Player extends Character {
         g.fillRect((int)(x + bounds.x - handler.getCamera().getxOffset()), (int)(y + bounds.y - handler.getCamera().getyOffset()), bounds.width, bounds.height);*/
     }
 
-    @Override
+    /*@Override
     public boolean solidEntity() {
         return false;
-    }
+    }*/
 }

@@ -10,6 +10,9 @@ public abstract class Entity {
     protected float x, y; // position
     protected int width, height; // size
     protected Rectangle bounds;
+    protected int health;
+
+    public static final int DEFAULT_HEALTH = 10;
 
 // ENTITY INTERACTION
     protected boolean active = true;
@@ -19,6 +22,8 @@ public abstract class Entity {
     protected boolean breakableEntity() { return false; }
     protected boolean collectableEntity() { return false; }
     public boolean testEntity() { return false; }
+    public boolean isPlayer() { return false;}
+    protected void die() {}
 
 
 // GETTERS AND SETTERS
@@ -34,6 +39,17 @@ public abstract class Entity {
     public int getHeight() { return height; }
     public void setHeight(int height) { this.height = height; }
 
+    public int getHealth() { return health; }
+
+
+
+    public void hurt(int amt) {
+        health -= amt;
+        if(health <= 0) {
+            active = false;
+        }
+    }
+
 
 // CONSTRUCTOR
     public Entity(Handler handler, float x, float y, int width, int height) {
@@ -42,6 +58,7 @@ public abstract class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
+        health = DEFAULT_HEALTH;
 
         bounds = new Rectangle(0, 0, width, height);
     }
@@ -57,8 +74,7 @@ public abstract class Entity {
             if (e.equals(this) || !e.solidEntity()) { continue; }
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
-                if (e.breakableEntity() || e.collectableEntity()) { e.active = false; }
-                if (e.testEntity()) {  }
+                if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; }
                 return true;
             }
         }

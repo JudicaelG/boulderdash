@@ -10,6 +10,8 @@ public class Mud extends StaticEntity {
 
     public Mud(Handler handler, float x, float y) {
         super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+        health = 1000000000;
+
     }
 
     @Override

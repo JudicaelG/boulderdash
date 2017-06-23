@@ -96,7 +96,7 @@ public class Game implements Runnable {
     public void run() {
         init();
 
-        int fps = 30; // amount of time the 'tick' and 'render' methods are called per second
+        int fps = 60; // amount of time the 'tick' and 'render' methods are called per second
         double timePerTick = 1000000000 / fps; // maximum amount of time (in nanoseconds) the 'tick' and 'render' methods are executed
         double delta = 0; // amount of time until we have to call the 'tick' and 'render' methods again
         long now; // current time of the computer

@@ -3,6 +3,7 @@ package projet.model;
 import projet.model.entities.Entity;
 import projet.model.entities.EntityManager;
 import projet.model.entities.characters.Player;
+import projet.model.entities.characters.Rock;
 import projet.model.entities.statics.*;
 
 import java.awt.*;
