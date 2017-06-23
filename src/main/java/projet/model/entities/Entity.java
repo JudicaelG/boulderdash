@@ -19,7 +19,9 @@ public abstract class Entity {
 
 // ENTITY INTERACTION
     protected boolean active = true;
-    private int diamondCount = 0;
+    
+    protected static int diamondCount;
+    public static void initDiamondCount(int diamondCount){ Entity.diamondCount = diamondCount;}
 
     public boolean isActive() {return active;}
     protected boolean solidEntity() { return true; };
@@ -28,7 +30,7 @@ public abstract class Entity {
     public boolean isRock() { return false; }
     public boolean isPlayer() { return false;}
     protected void die() {}
-    protected void win() { if (diamondCount >= 2) {System.out.println("YOU WIN !");} }
+    protected void win() { if (diamondCount <= 0) {System.out.println("YOU WIN !");} }
 
 // GETTERS AND SETTERS
     public float getX() { return x;}
@@ -85,7 +87,7 @@ public abstract class Entity {
                 if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) {
                 	e.active = false;
                 	// if (e.collectableEntity()) No, isn't mud collectable?
-                	if (e.collectableEntity() && e.giveScore() == true){Score.setActScore(Score.getActScore()+10); diamondCount++;System.out.println(Score.getActScore());}		//Works only if there is only diamond giving score. Else we should create a isDiamond bool method or something
+                	if (e.collectableEntity() && e.giveScore() == true){Score.setActScore(Score.getActScore()+10); diamondCount--;System.out.println(Score.getActScore());}		//Works only if there is only diamond giving score. Else we should create a isDiamond bool method or something
                 }
                 
                 return true;
