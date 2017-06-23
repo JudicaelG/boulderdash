@@ -28,7 +28,7 @@ public class MobEntity extends Entity{
 
 	    public float getyMove() { return yMove; }
 	    public void setyMove(float yMove) { this.yMove = yMove; }
-
+	    
 		public MobEntity(Handler handler, float x, float y, int width, int height) {
 		    super(handler, x, y, width, height);
 		    speed = DEFAULT_SPEED;

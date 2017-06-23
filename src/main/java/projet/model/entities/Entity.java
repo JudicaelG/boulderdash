@@ -1,6 +1,7 @@
 package projet.model.entities;
 
 import projet.model.Handler;
+import projet.model.Score;
 
 import java.awt.*;
 
@@ -13,6 +14,8 @@ public abstract class Entity {
     protected int health;
 
     public static final int DEFAULT_HEALTH = 10;
+    
+    public boolean giveScore(){return false;}		//Whether the entity give score when destroyed. Override this like in diamond.
 
 // ENTITY INTERACTION
     protected boolean active = true;
@@ -41,6 +44,8 @@ public abstract class Entity {
     public void setHeight(int height) { this.height = height; }
 
     public int getHealth() { return health; }
+    
+    
 
 
 
@@ -77,7 +82,12 @@ public abstract class Entity {
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
                 if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
-                if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; if (e.collectableEntity()) { diamondCount++; }}
+                if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) {
+                	e.active = false;
+                	// if (e.collectableEntity()) No, isn't mud collectable?
+                	if (e.collectableEntity() && e.giveScore() == true){Score.setActScore(Score.getActScore()+10); diamondCount++;System.out.println(Score.getActScore());}		//Works only if there is only diamond giving score. Else we should create a isDiamond bool method or something
+                }
+                
                 return true;
             }
         }

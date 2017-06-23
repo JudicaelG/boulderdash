@@ -20,6 +20,9 @@ public class Diamond extends Character {
     }
 
     @Override
+    public boolean giveScore(){return true;}
+    
+    @Override
     public void tick() {
         anim_Diamond.tick();
         move();
