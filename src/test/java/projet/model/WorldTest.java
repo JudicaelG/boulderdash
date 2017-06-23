@@ -88,7 +88,7 @@ public class WorldTest {
 	{
 		try
 		{
-			new Game("BoulderDash", 768, 768);
+			new World (handler, patch);
 			fail("Schould throw exception when width > 768");
 		}
 		catch(final Exception e)
@@ -106,7 +106,7 @@ public class WorldTest {
 	{
 		try
 		{
-			new Game("BoulderDash", 768, 768);
+			new World (handler, patch);
 			fail("Schould throw exception when width < 100");
 		}
 		catch(final Exception e)
@@ -124,7 +124,7 @@ public class WorldTest {
 	{
 		try
 		{
-			new Game("BoulderDash", 768, 768);
+			new World (handler, patch);
 			fail("Schould throw exception when width > 768");
 		}
 		catch(final Exception e)
@@ -143,7 +143,7 @@ public class WorldTest {
 	{
 		try
 		{
-			new Game("BoulderDash", 768, 768);
+			new World (handler, patch);
 			fail("Schould throw exception when width > 100");
 		}
 		catch(final Exception e)
