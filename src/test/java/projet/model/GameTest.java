@@ -1,24 +1,11 @@
 package projet.model;
 
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import org.junit.*;
+import projet.view.Camera;
 
 import javax.net.ssl.KeyManager;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import projet.view.Camera;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import junit.framework.TestCase;
-import projet.view.Camera;
 
 public class GameTest extends TestCase {
 	

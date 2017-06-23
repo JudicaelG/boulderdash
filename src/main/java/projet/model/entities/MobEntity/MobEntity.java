@@ -1,17 +1,16 @@
 package projet.model.entities.MobEntity;
 
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
 import projet.model.Handler;
-import projet.model.Tile;
 import projet.model.entities.Entity;
+
+import java.awt.*;
 
 public class MobEntity extends Entity{
 
 	//public static final int DEFAULT_CREATURE_WIDTH = 64, DEFAULT_CREATURE_HEIGHT = 64;
-	
+		private boolean isMob() { return true;}
+
 		public static final float DEFAULT_SPEED = 48;
 	    public static final int DEFAULT_CHARACTER_WIDTH = 48;
 	    public static final int DEFAULT_CHARACTER_HEIGHT = 48;
@@ -40,7 +39,7 @@ public class MobEntity extends Entity{
 	        if (!checkEntityCollision(xMove, 0f)) { xMove++; yMove--; } // When entity encounter mud or something in moveY, entity move on X
 	        if (!checkEntityCollision(0f, yMove)) { yMove++; xMove--; } // When entity encounter mud or something in moveX, entity move on Y
 	    }
-		public void moveX() { // t = temp
+		/*public void moveX() { // t = temp
 	        if (xMove < 0) { // Move Left
 	            int tx = (int)(x + xMove + bounds.x) / Tile.TILEWIDTH;
 
@@ -83,7 +82,7 @@ public class MobEntity extends Entity{
 	    }
 	    protected  boolean collisionWithTile(int x, int y) {
 	        return handler.getWorld().getTile(x, y).isSolid();
-	    }
+	    }*/
 		@Override
 		public void tick() {
 			// TODO Auto-generated method stub

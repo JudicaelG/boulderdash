@@ -18,9 +18,6 @@ public class Diamond extends Character {
         bounds.height = 44;
         yMove = 1;
     }
-
-    @Override
-    public boolean giveScore(){return true;}
     
     @Override
     public void tick() {
