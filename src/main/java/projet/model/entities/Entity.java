@@ -16,6 +16,7 @@ public abstract class Entity {
 
 // ENTITY INTERACTION
     protected boolean active = true;
+    private int diamondCount = 0;
 
     public boolean isActive() {return active;}
     protected boolean solidEntity() { return true; };
@@ -23,8 +24,8 @@ public abstract class Entity {
     protected boolean collectableEntity() { return false; }
     public boolean isRock() { return false; }
     public boolean isPlayer() { return false;}
-    public void die() {}
-
+    protected void die() {}
+    protected void win() { if (diamondCount >= 2) {System.out.println("YOU WIN !");} }
 
 // GETTERS AND SETTERS
     public float getX() { return x;}
@@ -76,7 +77,7 @@ public abstract class Entity {
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
                 if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
-                if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; }
+                if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; if (e.collectableEntity()) { diamondCount++; }}
                 return true;
             }
         }

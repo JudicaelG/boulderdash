@@ -46,7 +46,6 @@ public class EntityManager {
                 //entities.remove(oldE);
             }
         }
-        win();
     }
 
     public void render(Graphics g) {
@@ -58,15 +57,5 @@ public class EntityManager {
 
     public void addEntity(Entity e) {
         entities.add(e);
-    }
-
-    public void win() {
-        for (Entity e : entities) {
-            if (e.collectableEntity()) {
-                if (!entities.contains(e)) {
-                    System.out.println("WIN");
-                }
-            }
-        }
     }
 }

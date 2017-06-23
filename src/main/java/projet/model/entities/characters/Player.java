@@ -60,6 +60,7 @@ public class Player extends Character {
             e.printStackTrace();
         }*/
         handler.getCamera().centerOnEntity(this);
+        win();
     }
 
     private void getInput() {
@@ -77,6 +78,7 @@ public class Player extends Character {
     }
 
     public boolean isPlayer() { return true;}
+
 
 
     @Override

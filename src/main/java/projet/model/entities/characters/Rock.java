@@ -12,11 +12,11 @@ public class Rock extends Character {
     public Rock(Handler handler, float x, float y) {
         super(handler, x,y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
         anim_Rock = new Animation(100, Assets.rock);
+        bounds.x = 2;
+        bounds.y = 2;
+        bounds.width = 44;
+        bounds.height = 44;
         yMove = 1;
-        bounds.x = 4;
-        bounds.y = 4;
-        bounds.width = 40;
-        bounds.height = 40;
     }
 
     @Override
