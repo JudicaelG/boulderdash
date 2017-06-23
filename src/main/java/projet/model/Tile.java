@@ -23,7 +23,6 @@ public class Tile {
     protected BufferedImage texture;
     protected final int id;
 
-
 // CONSTRUCTOR
     public Tile(BufferedImage texture, int id) {
         this.texture = texture;

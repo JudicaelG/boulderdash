@@ -15,6 +15,11 @@ public class Wild_Man extends MobEntity{
 		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
 		// TODO Auto-generated constructor stub
 		wild_man = new Animation(100, Assets.wild_man);
+		bounds.x = 2;
+        bounds.y = 2;
+        bounds.width = 44;
+        bounds.height = 44;
+        xMove = 1;
 		
 	}
 

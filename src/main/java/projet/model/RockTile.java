@@ -7,4 +7,5 @@ public class RockTile extends Tile {
     public RockTile(int id) {
         super(Assets.mud_none, id);
     }
+    
 }

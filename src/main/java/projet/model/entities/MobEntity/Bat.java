@@ -16,6 +16,11 @@ public class Bat extends MobEntity{
 		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
 		// TODO Auto-generated constructor stub
 		bat = new Animation(100, Assets.bat);
+		bounds.x = 2;
+        bounds.y = 2;
+        bounds.width = 44;
+        bounds.height = 44;
+        xMove = 1;
 	}
 
 	@Override
@@ -23,6 +28,12 @@ public class Bat extends MobEntity{
 		// TODO Auto-generated method stub
 		bat.tick();
 		move();
+		
+		try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 	}
 
 	@Override
