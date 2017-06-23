@@ -2,7 +2,9 @@ package projet.model;
 
 import projet.model.entities.Entity;
 import projet.model.entities.EntityManager;
+import projet.model.entities.characters.Diamond;
 import projet.model.entities.characters.Player;
+import projet.model.entities.characters.Rock;
 import projet.model.entities.statics.*;
 
 import java.awt.*;
@@ -40,7 +42,6 @@ public class World {
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < width; i++) {
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 2) { entityManager.addEntity(new MudNone(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 5) { entityManager.addEntity(new Door(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }

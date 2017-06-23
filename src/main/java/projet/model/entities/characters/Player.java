@@ -29,6 +29,8 @@ public class Player extends Character {
         bounds.width = 42;
         bounds.height = 42;
 
+        health = 10;
+
 
         // Animations
         anim_PlayerAFK = new Animation(500, Assets.player_afk);
@@ -51,12 +53,12 @@ public class Player extends Character {
 
         // Movement
         getInput();
-        try {
+        move();
+        /*try {
             Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        move();
+        }*/
         handler.getCamera().centerOnEntity(this);
     }
 
@@ -70,6 +72,13 @@ public class Player extends Character {
         if (handler.getKeyManager().right) { xMove = speed; }
     }
 
+    public void die() {
+        System.out.println("YOU LOOSE !");
+    }
+
+    public boolean isPlayer() { return true;}
+
+
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimation(), (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
@@ -77,10 +86,5 @@ public class Player extends Character {
         //HITBOX
         /*g.setColor(Color.red);
         g.fillRect((int)(x + bounds.x - handler.getCamera().getxOffset()), (int)(y + bounds.y - handler.getCamera().getyOffset()), bounds.width, bounds.height);*/
-    }
-
-    @Override
-    public boolean solidEntity() {
-        return false;
     }
 }

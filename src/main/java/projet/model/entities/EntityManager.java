@@ -2,7 +2,6 @@ package projet.model.entities;
 
 import projet.model.Handler;
 import projet.model.entities.characters.Player;
-import projet.model.entities.statics.MudNone;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -39,11 +38,12 @@ public class EntityManager {
             Entity e = entities.get(i);
             e.tick();
             if(!e.isActive()) {
-                Entity oldE = e;
+                //Entity oldE = e;
                 float x = e.getX();
                 float y = e.getY();
-                entities.set(i, new MudNone(handler, x, y));
-                entities.remove(oldE);
+                entities.remove(e);
+                //entities.set(i, new MudNone(handler, x, y));
+                //entities.remove(oldE);
             }
         }
         win();
