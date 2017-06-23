@@ -68,7 +68,10 @@ public class Assets {
         player_down[2] = sheet_Player.crop(SPRITE_SIZE*2, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         player_down[3] = sheet_Player.crop(SPRITE_SIZE*3, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         
+
         SpriteSheet sheet_butterfly = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
+
+        
 		butterfly = new BufferedImage[5];
 		butterfly[0] = sheet_butterfly.crop(SPRITE_SIZE*10,             0, SPRITE_SIZE, SPRITE_SIZE);
 		butterfly[1] = sheet_butterfly.crop(SPRITE_SIZE*10,   SPRITE_SIZE, SPRITE_SIZE, SPRITE_SIZE);
