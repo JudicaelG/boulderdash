@@ -21,9 +21,9 @@ public abstract class Entity {
     protected boolean solidEntity() { return true; };
     protected boolean breakableEntity() { return false; }
     protected boolean collectableEntity() { return false; }
-    public boolean testEntity() { return false; }
+    public boolean isRock() { return false; }
     public boolean isPlayer() { return false;}
-    protected void die() {}
+    public void die() {}
 
 
 // GETTERS AND SETTERS
@@ -47,6 +47,7 @@ public abstract class Entity {
         health -= amt;
         if(health <= 0) {
             active = false;
+            die();
         }
     }
 
@@ -74,6 +75,7 @@ public abstract class Entity {
             if (e.equals(this) || !e.solidEntity()) { continue; }
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
+                if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
                 if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; }
                 return true;
             }

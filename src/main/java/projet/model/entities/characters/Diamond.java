@@ -1,23 +1,28 @@
-package projet.model.entities.statics;
+package projet.model.entities.characters;
 
 import projet.model.Handler;
 import projet.view.Animation;
 import projet.view.Assets;
-import projet.model.Tile;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Diamond extends StaticEntity {
+public class Diamond extends Character {
 
     public Diamond(Handler handler, float x, float y) {
-        super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+        super(handler, x, y, Character.DEFAULT_CHARACTER_WIDTH, Character.DEFAULT_CHARACTER_HEIGHT);
         anim_Diamond = new Animation(100, Assets.diamond);
+        bounds.x = 4;
+        bounds.y = 4;
+        bounds.width = 40;
+        bounds.height = 40;
+        yMove = 1;
     }
 
     @Override
     public void tick() {
         anim_Diamond.tick();
+        move();
     }
 
     @Override

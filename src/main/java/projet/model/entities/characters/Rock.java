@@ -1,7 +1,6 @@
 package projet.model.entities.characters;
 
 import projet.model.Handler;
-import projet.model.entities.Entity;
 import projet.view.Animation;
 import projet.view.Assets;
 
@@ -32,40 +31,30 @@ public class Rock extends Character {
     }
 
     @Override
-    public boolean testEntity() { return true; }
+    public boolean isRock() { return true; }
 
     // Animations
     private Animation anim_Rock;
     private BufferedImage getCurrentAnimation() { return anim_Rock.getCurrentFrame(); }
 
 
-    private void fall() {
+   /*private void fall() {
         Rectangle cb = getCollisionBounds(0, 0);
         Rectangle ar = new Rectangle();
-        int arSize = 20;
+        int arSize = 48;
         ar.width = arSize;
         ar.height = arSize;
 
-        if (yMove <= -1) {
-            ar.x = cb.x + cb.width / 2 - arSize / 2;
-            ar.y = cb.y - arSize;
-        }  if (yMove >= 1) {
+        /f (yMove >= 1) {
             ar.x = cb.x + cb.width / 2 - arSize / 2;
             ar.y = cb.y + cb.height;
-        } else if (xMove <= -1) {
-            ar.x = cb.x - arSize;
-            ar.y = cb.y + cb.height / 2 - arSize / 2;
-        } else if (xMove >= 1) {
-            ar.x = cb.x + arSize;
-            ar.y = cb.y + cb.height / 2 - arSize / 2;
         } else { return; }
 
         for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
             if (e.equals(this)) { continue; }
-            if (e.getCollisionBounds(0, 0).intersects(ar)) {
-                e.hurt(1);
+            if (e.getCollisionBounds(0, 0).intersects(getCollisionBounds(xOffset, yOffset)) {
+                if (e.isPlayer()) { e.die(); }
             }
         }
-
-    }
+    }*/
 }
