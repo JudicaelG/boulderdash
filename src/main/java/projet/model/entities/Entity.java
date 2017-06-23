@@ -75,7 +75,7 @@ public abstract class Entity {
             if (e.equals(this) || !e.solidEntity()) { continue; }
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
-                if(this.isRock()) { if (e.isPlayer()) { e.die(); } }
+                if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
                 if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) { e.active = false; }
                 return true;
             }
