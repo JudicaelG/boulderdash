@@ -108,7 +108,7 @@ public class Assets {
         player_down[1] = sheet_Player.crop(SPRITE_SIZE, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         player_down[2] = sheet_Player.crop(SPRITE_SIZE*2, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
         player_down[3] = sheet_Player.crop(SPRITE_SIZE*3, SPRITE_SIZE*4, SPRITE_SIZE, SPRITE_SIZE);
-<<<<<<< HEAD
+
         
 
         SpriteSheet sheet_butterfly = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters.png")); 
@@ -147,7 +147,6 @@ public class Assets {
 		wild_man[1] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*17, SPRITE_SIZE, SPRITE_SIZE);
 		wild_man[2] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*18, SPRITE_SIZE, SPRITE_SIZE);
 		wild_man[3] = sheet_wild_man.crop(SPRITE_SIZE*10,SPRITE_SIZE*19, SPRITE_SIZE, SPRITE_SIZE);
-=======
->>>>>>> branch 'master' of https://github.com/Ssaphirion/boulderdash
+
     }
 }

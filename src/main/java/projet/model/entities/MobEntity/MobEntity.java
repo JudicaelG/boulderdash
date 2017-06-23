@@ -2,6 +2,7 @@ package projet.model.entities.MobEntity;
 
 
 import projet.model.Handler;
+import projet.model.Tile;
 import projet.model.entities.Entity;
 
 import java.awt.*;
@@ -56,12 +57,12 @@ public class MobEntity extends Entity{
 	        System.out.println(direction);
 	        // if((collisionWithTile(tx, (int)(y + bounds.y) / Tile.TILEHEIGHT) && collisionWithTile(tx, (int)(y + bounds.y + bounds.height) / Tile.TILEHEIGHT) || (collisionWithTile((int)(x + bounds.x) / Tile.TILEWIDTH, ty) && collisionWithTile((int)(x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)))) {direction++;if(direction == 4){direction = 0;}}
 	    }
-<<<<<<< HEAD
+
 	    
-	    public void moveX() { // t = temp
-=======
-		/*public void moveX() { // t = temp
->>>>>>> branch 'master' of https://github.com/Ssaphirion/boulderdash
+	   
+
+		public void moveX() { // t = temp
+
 	        if (xMove < 0) { // Move Left
 	            int tx = (int)(x + xMove + bounds.x) / Tile.TILEWIDTH;
 
@@ -111,7 +112,7 @@ public class MobEntity extends Entity{
 	    }
 	    protected  boolean collisionWithTile(int x, int y) {
 	        return handler.getWorld().getTile(x, y).isSolid();
-<<<<<<< HEAD
+
 	    }
 	    
 		@Override
@@ -123,8 +124,8 @@ public class MobEntity extends Entity{
 		public void render(Graphics g) {
 			// TODO Auto-generated method stub
 			
-		}
-}
+		}}
+
 	    	
 	    	/*
 	    	if(!checkEntityCollision(xMove, 0f)) { // When entity encounter mud or something in moveY, entity move on X
@@ -147,17 +148,8 @@ public class MobEntity extends Entity{
 	    
 =======
 	    }*/
->>>>>>> branch 'master' of https://github.com/Ssaphirion/boulderdash
-		@Override
-		public void tick() {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void render(Graphics g) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
+ 
+		
 
-*/
+
+

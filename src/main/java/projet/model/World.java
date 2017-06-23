@@ -50,15 +50,15 @@ public class World {
                 if (tiles[i][j] == 7) { entityManager.addEntity(new SpecialWall(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 8) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 9) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-<<<<<<< HEAD
+
                 //if (tiles[i][j] == 8) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 //if (tiles[i][j] == 9) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 //if (tiles[i][j] == 8) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-=======
+
                 if (tiles[i][j] == 10) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 11) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 12) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
->>>>>>> branch 'master' of https://github.com/Ssaphirion/boulderdash
+
             }	
         }
         entityManager.getPlayer().setX(spawnX);
