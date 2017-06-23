@@ -18,7 +18,7 @@ public class Assets {
     public static void init() {
     // Screens and Fonts
         //roboto = FontLoader.loadFont("/fonts/RobotoCondensed-Regular.ttf", 12.0);
-        diamondScreen = ImageLoader.loadImage("/worlds/test.png");
+        //diamondScreen = ImageLoader.loadImage("/textures/d.png");
 
     // Decors and Monsters
         SpriteSheet sheet_DecorsMonsters = new SpriteSheet(ImageLoader.loadImage("/textures/sprites_DecorsMonsters-Transparent.png"));
