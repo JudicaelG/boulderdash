@@ -1,24 +1,38 @@
 package projet.view;
 
-import projet.model.Handler;
-import projet.model.entities.Entity;
-import projet.model.Tile;
+import projet.game.Handler;
+import projet.entities.Entity;
+import tiles.Tile;
 
 public class Camera {
-// ATTRIBUTES
+    // ATTRIBUTES
     private Handler handler;
     private float xOffset, yOffset;
 
 
 // GETTERS AND SETTERS
-    public float getxOffset() { return xOffset; }
-    public void setxOffset(float xOffset) { this.xOffset = xOffset; }
 
-    public float getyOffset() { return yOffset; }
-    public void setyOffset(float yOffset) { this.yOffset = yOffset; }
+    /**
+     * Gets the xOffset of the camera
+     *
+     * @return The xOffset
+     */
+    public float getxOffset() {
+        return xOffset;
+    }
 
 
-// CONSTRUCTOR
+    /**
+     * Gets the yOffset of the camera
+     *
+     * @return The yOffset
+     */
+    public float getyOffset() {
+        return yOffset;
+    }
+
+
+    // CONSTRUCTOR
     public Camera(Handler handler, float xOffset, float yOffset) {
         this.handler = handler;
         this.xOffset = xOffset;
@@ -27,17 +41,23 @@ public class Camera {
 
 
     // METHODS
+
+    /**
+     * Moves the camera
+     * Adds x and y amount to x and y Offset
+     *
+     * @param xAmt The amount of x the camera has to move
+     * @param yAmt The amount of y the camera has to move
+     */
     public void move(float xAmt, float yAmt) {
         xOffset += xAmt;
         yOffset += yAmt;
     }
 
-    public void centerOnEntity(Entity e) {
-        xOffset = e.getX() - handler.getWidth()/2 + e.getWidth()/2;
-        yOffset = e.getY() - handler.getHeight()/2 + e.getWidth()/2;
-        checkBlankSpace();
-    }
 
+    /**
+     * Checks the blank spaces in the Map to not display them
+     */
     public void checkBlankSpace() {
         if (xOffset < 0) {
             xOffset = 0;
@@ -52,4 +72,15 @@ public class Camera {
         }
     }
 
+
+    /**
+     * Centers the camera on an entity (the player)
+     *
+     * @param e The entity the camera has to center
+     */
+    public void centerOnEntity(Entity e) {
+        xOffset = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
+        yOffset = e.getY() - handler.getHeight() / 2 + e.getWidth() / 2;
+        checkBlankSpace();
+    }
 }

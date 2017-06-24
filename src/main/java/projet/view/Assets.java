@@ -5,8 +5,14 @@ import java.awt.image.BufferedImage;
 
 public class Assets {
     // ATTRIBUTES
+/**
+ * The Sprite size on the Spritesheet
+ */
     private static final int SPRITE_SIZE = 16;
 
+/**
+ * The name of the font used
+ */
     public static Font roboto;
 
     public static BufferedImage wall, mud, mud_none, door, weird, wall_special, buzzbuzz, puffpuff, star;
@@ -15,10 +21,14 @@ public class Assets {
     public static BufferedImage[] player_afk, player_left, player_up, player_right, player_down;
     public static BufferedImage diamondScreen, gameOverScreen, winScreen;
 
+
+/**
+ * Initializes and loads every images
+ */
     public static void init() {
     // Screens and Fonts
-        //roboto = FontLoader.loadFont("/fonts/RobotoCondensed-Regular.ttf", 12.0);
-        //diamondScreen = ImageLoader.loadImage("/textures/d.png");
+        roboto = FontLoader.loadFont("res/fonts/RobotoCondensed-Regular.ttf", 28);
+        diamondScreen = ImageLoader.loadImage("/textures/diamondcount.png");
         gameOverScreen = ImageLoader.loadImage("/textures/gameover.png");
         winScreen = ImageLoader.loadImage("/textures/win.png");
 

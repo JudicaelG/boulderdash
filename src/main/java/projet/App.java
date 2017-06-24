@@ -1,6 +1,6 @@
 package projet;
 
-import projet.model.Game;
+import projet.game.Game;
 
 public class App
 {

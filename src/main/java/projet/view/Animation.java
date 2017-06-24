@@ -4,8 +4,24 @@ import java.awt.image.BufferedImage;
 
 public class Animation {
 // ATTRIBUTES
-    private int speed, index;
+/**
+ * The speed of the animation
+ */
+    private int speed;
+
+/**
+ * The index of the sprite in the sprites table used for the animations
+ */
+    private int index;
+
+/**
+ * The name of the sprites table
+ */
     private BufferedImage[] frames;
+
+/**
+ * They are used used to determine the speed
+ */
     private long lastTime, timer;
 
 // CONSTRUCTOR
@@ -19,6 +35,9 @@ public class Animation {
 
 
 // METHODS
+/**
+ * Determines how often the animation is done
+ */
     public void tick() {
         timer += System.currentTimeMillis() - lastTime;
         lastTime = System.currentTimeMillis();
@@ -30,6 +49,11 @@ public class Animation {
         }
     }
 
+/**
+ * Gets the current sprite in the animation
+ *
+ * @return The current frame in the animation
+ */
     public BufferedImage getCurrentFrame() {
         return frames[index];
     }

@@ -1,20 +1,37 @@
 package projet.view.display;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class Display {
-    // ATTRIBUTES
+// ATTRIBUTES
+/**
+ * The frame of the game
+ */
     private JFrame frame;
+
+/**
+ * The canvas to display
+ */
     private Canvas canvas;
 
+/**
+ * The title of the window
+ */
     private String title;
-    private int width, height;
+
+/**
+ * The width of the window
+ */
+    private int width;
+
+/**
+ * The height of the window
+ */
+    private int height;
 
 
-    // CONSTRUCTOR
+// CONSTRUCTOR
     public Display(String title, int width, int height) {
         this.title = title;
         this.width = width;
@@ -24,7 +41,11 @@ public class Display {
     }
 
 
-    // METHODS
+// METHODS
+/**
+ * Creates the Frame to display the window of the game
+ * Creates the Canvas to display elements on the game
+ */
     private void createDisplay() {
         // frame
         frame = new JFrame(title);
@@ -45,8 +66,17 @@ public class Display {
         frame.pack();
     }
 
-
+/**
+ * Gets the canvas of the game
+ *
+ * @return The canvas used
+ */
     public Canvas getCanvas() { return canvas; }
 
+/**
+ * Gets the frame of the game
+ *
+ * @return The frame used
+ */
     public JFrame getFrame() { return frame; }
 }
