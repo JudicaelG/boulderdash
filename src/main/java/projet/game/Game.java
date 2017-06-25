@@ -34,6 +34,9 @@ public class Game implements Runnable {
 
     // Handler
     private Handler handler;
+    
+    private static long startTime;
+    public static long getStartTime(){return startTime;}
 
 
 // GETTERS AND SETTERS
@@ -128,6 +131,7 @@ public class Game implements Runnable {
         long lastTime = System.nanoTime(); // return the current time of the computer in nanoseconds
         long timer = 0; // time until 1 second
         int ticks = 0;
+        startTime = System.currentTimeMillis()/1000;
 
         while(running) {
             now = System.nanoTime();

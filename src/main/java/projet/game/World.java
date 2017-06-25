@@ -8,6 +8,7 @@ import projet.entities.dynamic.Diamond;
 import projet.entities.dynamic.Player;
 import projet.entities.dynamic.Rock;
 import tiles.Tile;
+import projet.game.World;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class World {
      * The table where are stocked the id of the map elements
      */
     private int[][] tiles;
+    
+    
+    private static int diamondCount = 0;
 
     // Entities
     private EntityManager entityManager;
@@ -72,7 +76,7 @@ public class World {
             for (int i = 0; i < width; i++) {
             	if (tiles[i][j] == 0) { entityManager.addEntity(new Wall(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
                 if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 8) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 9) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
@@ -81,6 +85,8 @@ public class World {
                 if (tiles[i][j] == 12) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
             }
         }
+        Entity.setDiamondCount(diamondCount);
+        Entity.setMaxTime(diamondCount*10);
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
         //entityManager.addEntity(new Player(handler, spawnX, spawnY));

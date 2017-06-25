@@ -3,6 +3,8 @@ package projet.entities;
 import projet.game.Handler;
 import projet.game.states.State;
 import projet.game.states.WinState;
+import projet.game.Score;
+import projet.game.Game;
 
 import java.awt.*;
 
@@ -18,7 +20,9 @@ public abstract class Entity {
 
 // ENTITY INTERACTION
     protected boolean active = true;
-    private int diamondCount = 0;
+    private static int diamondCount;
+    private static int maxTime;
+    private static int remainingTime;
 
     public boolean isActive() {return active;}
     protected boolean solidEntity() { return true; }
@@ -28,7 +32,10 @@ public abstract class Entity {
     public boolean isPlayer() { return false;}
     protected void die() {}
     protected void win() {
-        if (diamondCount >= 10) {
+        if (diamondCount <= 0) {
+        	remainingTime = maxTime - (int)(System.currentTimeMillis()/1000 - Game.getStartTime());
+        	Score.setScore(Score.getScore() + remainingTime);
+        	System.out.println(Score.getScore());
             State winState = new WinState(handler);
             State.setState(winState);
         }
@@ -36,7 +43,7 @@ public abstract class Entity {
 
 // GETTERS AND SETTERS
     public float getX() { return x;}
-    public void setX(float x) { this.x = x; }
+    public void setX(float x) { this.x = x;} 
 
     public float getY() { return y; }
     public void setY(float y) { this.y = y; }
@@ -49,6 +56,8 @@ public abstract class Entity {
 
     public int getHealth() { return health; }
     public int getDiamondCount() { return diamondCount;}
+    public static void setDiamondCount(int diamondCount){Entity.diamondCount = diamondCount;}
+    public static void setMaxTime(int maxTime) {Entity.maxTime = maxTime;}
     
     
 
@@ -94,7 +103,7 @@ public abstract class Entity {
                 if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
                 if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) {
                 	e.active = false;
-                	if (e.collectableEntity()){diamondCount++;}
+                	if (e.collectableEntity()){diamondCount--; Score.setScore(Score.getScore() + 10);System.out.println(Score.getScore());}
                 }
                 return true;
             }
