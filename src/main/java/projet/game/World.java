@@ -3,7 +3,7 @@ package projet.game;
 import projet.entities.Entity;
 import projet.entities.EntityManager;
 import projet.entities.MobEntity.*;
-import projet.entities.statics.Mud;
+import projet.entities.statics.*;
 import projet.entities.dynamic.Diamond;
 import projet.entities.dynamic.Player;
 import projet.entities.dynamic.Rock;
@@ -70,6 +70,7 @@ public class World {
         entityManager = new EntityManager(handler, new Player(handler, 0, 0));
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < width; i++) {
+            	if (tiles[i][j] == 0) { entityManager.addEntity(new Wall(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }

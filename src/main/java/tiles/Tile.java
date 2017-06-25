@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 public class Tile {
 // TILES
     public static Tile[] tiles = new Tile[256];
-    public static Tile wallTile = new WallTile(0);
     public static Tile mudTile = new MudTile(1);
     public static Tile mud_noneTile = new MudNoneTile(2);
     public static Tile diamondTile = new DiamondTile(3);
