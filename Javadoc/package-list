@@ -1,0 +1,9 @@
+projet
+projet.controller.input
+projet.model
+projet.model.entities
+projet.model.entities.MobEntity
+projet.model.entities.dynamic
+projet.model.entities.statics
+projet.view
+projet.view.display
