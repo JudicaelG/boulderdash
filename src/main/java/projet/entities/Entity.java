@@ -22,7 +22,10 @@ public abstract class Entity {
     protected boolean active = true;
     private static int diamondCount;
     private static int maxTime;
+    public static int getMaxTime(){return Entity.maxTime;}
     private static int remainingTime;
+    public static int getRemainingTime(){return remainingTime;}
+    public static void setRemainingTime(int remainingTime){Entity.remainingTime = remainingTime;}
 
     public boolean isActive() {return active;}
     protected boolean solidEntity() { return true; }
