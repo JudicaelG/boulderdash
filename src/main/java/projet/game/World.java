@@ -3,12 +3,12 @@ package projet.game;
 import projet.entities.Entity;
 import projet.entities.EntityManager;
 import projet.entities.MobEntity.*;
-import projet.entities.statics.*;
 import projet.entities.dynamic.Diamond;
 import projet.entities.dynamic.Player;
 import projet.entities.dynamic.Rock;
-import tiles.Tile;
-import projet.game.World;
+import projet.entities.statics.Mud;
+import projet.entities.statics.Wall;
+import projet.tiles.Tile;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class World {
 
 // CONSTRUCTOR
     /**
-     * Creates the world and replaces tiles by entities
+     * Creates the world and replaces projet.tiles by entities
      *
      * @param handler The handler of the game
      * @param path The path of the map
@@ -78,11 +78,11 @@ public class World {
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
                 if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 8) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 9) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 10) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 11) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 12) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 5) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 6) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 7) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 8) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 9) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
             }
         }
         Entity.setDiamondCount(diamondCount);
@@ -104,7 +104,7 @@ public class World {
      * @param g A graphic attribute to display elements
      */
     public void render(Graphics g) {
-        // rendering efficiency (renders only tiles the player can see)
+        // rendering efficiency (renders only projet.tiles the player can see)
         int xStart = (int)Math.max(0, handler.getCamera().getxOffset() / Tile.TILEWIDTH);
         int xEnd = (int)Math.min(width, (handler.getCamera().getxOffset() + handler.getWidth()) / Tile.TILEWIDTH + 1);
         int yStart = (int)Math.max(0, handler.getCamera().getyOffset() / Tile.TILEHEIGHT);
@@ -121,7 +121,7 @@ public class World {
 
 
     /**
-     * Places every tiles at the right position
+     * Places every projet.tiles at the right position
      *
      * @param x The x Position of the tile
      *
@@ -139,22 +139,22 @@ public class World {
 
 
     /**
-     * Sets the width, height, x spawn and y spawn of the player mentioned in the txt map and gets every tiles
+     * Sets the width, height, x spawn and y spawn of the player mentioned in the txt map and gets every projet.tiles
      *
      * @param path The path to the txt map file
      */
     private void loadWorld(String path) {
         String file = Utils.loadFileAsString(path);
         String[] tokens = file.split("\\s+"); // separates every character
-        width = Utils.parseInt(tokens[0]);
-        height = Utils.parseInt(tokens[1]);
-        spawnX = Utils.parseInt(tokens[2]);
-        spawnY = Utils.parseInt(tokens[3]);
+        width = Utils.parseInt(tokens[1]);
+        height = Utils.parseInt(tokens[2]);
+        spawnX = Utils.parseInt(tokens[3]);
+        spawnY = Utils.parseInt(tokens[4]);
 
         tiles = new int[width][height];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
+                tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 5]);
             }
         }
     }

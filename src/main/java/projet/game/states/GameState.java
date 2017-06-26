@@ -19,7 +19,7 @@ public class GameState extends State{
      */
     public GameState(Handler handler) {
         super(handler);
-        world = new World(handler, "D:/_PROJET/BoulderDash/res/worlds/level5.txt");
+        world = new World(handler, "world.txt");
         handler.setWorld(world);
         handler.getCamera().move(0, 0);
     }

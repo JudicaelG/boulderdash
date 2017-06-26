@@ -3,7 +3,7 @@ package projet.entities.MobEntity;
 
 import projet.entities.Entity;
 import projet.game.Handler;
-import tiles.Tile;
+import projet.tiles.Tile;
 
 import java.awt.*;
 

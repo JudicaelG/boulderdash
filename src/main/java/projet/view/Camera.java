@@ -2,7 +2,7 @@ package projet.view;
 
 import projet.game.Handler;
 import projet.entities.Entity;
-import tiles.Tile;
+import projet.tiles.Tile;
 
 public class Camera {
     // ATTRIBUTES

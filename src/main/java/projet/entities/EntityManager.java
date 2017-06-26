@@ -1,7 +1,7 @@
 package projet.entities;
 
-import projet.game.Handler;
 import projet.entities.dynamic.Player;
+import projet.game.Handler;
 
 import java.awt.*;
 import java.util.ArrayList;

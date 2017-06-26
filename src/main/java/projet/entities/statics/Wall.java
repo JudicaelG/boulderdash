@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import projet.game.Handler;
 import projet.view.Assets;
-import tiles.Tile;
+import projet.tiles.Tile;
 
 public class Wall extends StaticEntity{
 	public Wall(Handler handler, float x, float y) {

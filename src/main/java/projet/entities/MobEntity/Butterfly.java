@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import projet.game.Handler;
-import tiles.Tile;
+import projet.tiles.Tile;
 import projet.view.Animation;
 import projet.view.Assets;
 

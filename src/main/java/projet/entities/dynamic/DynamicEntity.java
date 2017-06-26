@@ -2,7 +2,7 @@ package projet.entities.dynamic;
 
 import projet.entities.Entity;
 import projet.game.Handler;
-import tiles.Tile;
+import projet.tiles.Tile;
 
 public abstract class DynamicEntity extends Entity {
 // ATTRIBUTES
@@ -115,7 +115,7 @@ public abstract class DynamicEntity extends Entity {
      * @param x The x position of the entity
      * @param y The y position of the entity
      *
-     * @return Every solid tiles
+     * @return Every solid projet.tiles
      */
     protected  boolean collisionWithTile(int x, int y) {
         return handler.getWorld().getTile(x, y).isSolid();

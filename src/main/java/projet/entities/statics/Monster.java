@@ -2,7 +2,7 @@ package projet.entities.statics;
 
 import projet.game.Handler;
 import projet.view.Assets;
-import tiles.Tile;
+import projet.tiles.Tile;
 
 import java.awt.*;
 
