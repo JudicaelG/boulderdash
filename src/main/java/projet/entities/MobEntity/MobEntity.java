@@ -25,6 +25,9 @@ public class MobEntity extends Entity{
 	    
 	    
 	 // GETTERS AND SETTERS
+	    @Override
+	    public boolean isMob(){return true;}
+	    
 	    public float getDirection() { return direction; }
 	    public void setDirection(int direction) { this.direction = direction; }
 	    
@@ -118,7 +121,8 @@ public class MobEntity extends Entity{
 		public void render(Graphics g) {
 			// TODO Auto-generated method stub
 			
-		}}
+		}
+	}
 
 	    	
 	    	/*

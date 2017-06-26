@@ -5,6 +5,7 @@ import projet.game.states.State;
 import projet.game.states.WinState;
 import projet.game.Score;
 import projet.game.Game;
+import projet.entities.MobEntity.MobEntity;
 
 import java.awt.*;
 
@@ -33,6 +34,7 @@ public abstract class Entity {
     protected boolean collectableEntity() { return false; }
     public boolean isRock() { return false; }
     public boolean isPlayer() { return false;}
+    public boolean isMob(){return false;}
     protected void die() {}
     protected void win() {
         if (diamondCount <= 0) {
@@ -103,7 +105,7 @@ public abstract class Entity {
             if (e.equals(this) || !e.solidEntity()) { continue; }
 
             if (e.getCollisionBounds(0f,0f).intersects(getCollisionBounds(xOffset, yOffset)) && e.solidEntity()) {
-                if(this.isRock() || this.collectableEntity()) { if (e.isPlayer()) { e.die(); } }
+                if(this.isRock() || this.collectableEntity() || this.isMob()) { if (e.isPlayer()) { e.die(); } }
                 if ( this.isPlayer() && (e.breakableEntity() || e.collectableEntity())) {
                 	e.active = false;
                 	if (e.collectableEntity()){diamondCount--; Score.setScore(Score.getScore() + 10);System.out.println(Score.getScore());}
