@@ -46,8 +46,8 @@ public class World {
     private static int diamondCount = 0;
 
     // Entities
-    private EntityManager entityManager;
-    private ArrayList<Entity> entities;
+    public static EntityManager entityManager;
+    private static ArrayList<Entity> entities;
     public ArrayList<Entity> getEntities() { return entities; }
     public Entity entity;
     public Player player;

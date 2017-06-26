@@ -7,6 +7,7 @@ import projet.tiles.Tile;
 import projet.entities.EntityManager;
 import projet.entities.dynamic.Diamond;
 import projet.entities.dynamic.Player;
+import projet.game.World;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class MobEntity extends Entity{
 		@Override
 		public void die(){
 			this.active = false;
-			
+			World.entityManager.addEntity(new Diamond(handler, this.getX(), this.getY()));
 		}
 
 	    public void move() {
