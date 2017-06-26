@@ -10,6 +10,6 @@ public class DiamondScreen {
 
     }
     public void render(Graphics g) {
-        g.drawImage(Assets.diamondScreen, 0, 0, 192, 48, null);
+        g.drawImage(Assets.diamondScreen, 0, 0, 576, 48, null);
     }
 }

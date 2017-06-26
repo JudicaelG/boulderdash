@@ -1,6 +1,8 @@
 package projet.entities.dynamic;
 
+import projet.entities.Entity;
 import projet.game.DiamondScreen;
+import projet.game.Score;
 import projet.game.states.GameOverState;
 import projet.game.Handler;
 import projet.game.states.State;
@@ -115,7 +117,14 @@ public class Player extends DynamicEntity {
         g.drawImage(getCurrentAnimation(), (int)(x - handler.getCamera().getxOffset()), (int)(y - handler.getCamera().getyOffset()), width, height, null);
         DiamondScreen diamondScreen = new DiamondScreen();
         diamondScreen.render(g);
-        Text.drawString(g, Integer.toString(getDiamondCount()), 24, 32, Color.white, Assets.roboto);
+        Text.drawString(g, Integer.toString(getDiamondCount()), 16, 32, Color.white, Assets.roboto);
+        if (Entity.getRemainingTime() > 10) {
+            Text.drawString(g, Integer.toString(Entity.getRemainingTime()), 216, 32, Color.white, Assets.roboto);
+        }
+        else {
+            Text.drawString(g, Integer.toString(Entity.getRemainingTime()), 216, 32, Color.red, Assets.roboto);
+        }
+        Text.drawString(g, Integer.toString(Score.getScore()), 416, 32, Color.white, Assets.roboto);
 
         //HITBOX
         /*g.setColor(Color.red);

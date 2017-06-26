@@ -1,11 +1,10 @@
 package projet.entities;
 
+import projet.game.Game;
 import projet.game.Handler;
+import projet.game.Score;
 import projet.game.states.State;
 import projet.game.states.WinState;
-import projet.game.Score;
-import projet.game.Game;
-import projet.entities.MobEntity.MobEntity;
 
 import java.awt.*;
 
@@ -36,6 +35,8 @@ public abstract class Entity {
     public boolean isPlayer() { return false;}
     public boolean isMob(){return false;}
     protected void die() {}
+    private static int lastTime;
+    public static int getLastTime() { return lastTime;}
     protected void win() {
         if (diamondCount <= 0) {
         	remainingTime = maxTime - (int)(System.currentTimeMillis()/1000 - Game.getStartTime());
@@ -43,6 +44,7 @@ public abstract class Entity {
         	System.out.println(Score.getScore());
             State winState = new WinState(handler);
             State.setState(winState);
+            lastTime = remainingTime;
         }
     }
 
@@ -60,7 +62,7 @@ public abstract class Entity {
     public void setHeight(int height) { this.height = height; }
 
     public int getHealth() { return health; }
-    public int getDiamondCount() { return diamondCount;}
+    public static int getDiamondCount() { return diamondCount;}
     public static void setDiamondCount(int diamondCount){Entity.diamondCount = diamondCount;}
     public static void setMaxTime(int maxTime) {Entity.maxTime = maxTime;}
     

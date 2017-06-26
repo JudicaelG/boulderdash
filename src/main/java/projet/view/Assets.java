@@ -28,7 +28,7 @@ public class Assets {
     public static void init() {
     // Screens and Fonts
         roboto = FontLoader.loadFont("res/fonts/RobotoCondensed-Regular.ttf", 28);
-        diamondScreen = ImageLoader.loadImage("/textures/diamondcount.png");
+        diamondScreen = ImageLoader.loadImage("/textures/hud.png");
         gameOverScreen = ImageLoader.loadImage("/textures/gameover.png");
         winScreen = ImageLoader.loadImage("/textures/win.png");
 

@@ -1,14 +1,13 @@
 package projet.game;
 
+import projet.entities.Entity;
 import projet.game.states.GameOverState;
 import projet.game.states.GameState;
 import projet.game.states.State;
-import projet.view.display.*;
+import projet.input.KeyManager;
 import projet.view.Assets;
 import projet.view.Camera;
-import projet.input.KeyManager;
-import projet.entities.Entity;
-import projet.entities.dynamic.Player;
+import projet.view.display.Display;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -138,7 +137,7 @@ public class Game implements Runnable {
         startTime = System.currentTimeMillis()/1000;
 
         while(running) {
-        	Entity.setRemainingTime(Entity.getMaxTime() - (int)(System.currentTimeMillis()/1000 - Game.getStartTime()));
+            Entity.setRemainingTime(Entity.getMaxTime() - (int)(System.currentTimeMillis()/1000 - Game.getStartTime()));
         	//System.out.println(Entity.getRemainingTime());
         	if (Entity.getRemainingTime() < 0){State gameOverState = new GameOverState(handler);State.setState(gameOverState);}
             now = System.nanoTime();

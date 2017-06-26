@@ -47,10 +47,11 @@ public class MobEntity extends Entity{
 	        yMove = 0;
 	        direction = 0;
 		}
-		// METHODS
-		
-	    public void move() {
 
+
+		// METHODS
+
+	    public void move() {
 	    	if (direction == 0) { yMove = -speed; if (!checkEntityCollision(0f, yMove)) { moveY(); } else {direction = 1; }}
 	        if (direction == 1) { xMove = -speed; if (!checkEntityCollision(xMove, 0f)) { moveX(); } else {direction = 2; }}
 	        if (direction == 2) { yMove = speed; if (!checkEntityCollision(0f, yMove)) { moveY(); } else {direction = 3; }}
