@@ -78,11 +78,11 @@ public class World {
                 if (tiles[i][j] == 1) { entityManager.addEntity(new Mud(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
                 if (tiles[i][j] == 3) { entityManager.addEntity(new Diamond(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
                 if (tiles[i][j] == 4) { entityManager.addEntity(new Rock(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 5) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 6) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 7) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 8) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
-                if (tiles[i][j] == 9) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); }
+                if (tiles[i][j] == 5) { entityManager.addEntity(new Spider(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
+                if (tiles[i][j] == 6) { entityManager.addEntity(new Bat(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
+                if (tiles[i][j] == 7) { entityManager.addEntity(new Wild_Man(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
+                if (tiles[i][j] == 8) { entityManager.addEntity(new Squid(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
+                if (tiles[i][j] == 9) { entityManager.addEntity(new Butterfly(handler, i * Tile.TILEWIDTH, j * Tile.TILEHEIGHT)); diamondCount++;}
             }
         }
         Entity.setDiamondCount(diamondCount);

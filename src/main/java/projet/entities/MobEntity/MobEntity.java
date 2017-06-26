@@ -4,8 +4,12 @@ package projet.entities.MobEntity;
 import projet.entities.Entity;
 import projet.game.Handler;
 import projet.tiles.Tile;
+import projet.entities.EntityManager;
+import projet.entities.dynamic.Diamond;
+import projet.entities.dynamic.Player;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 
 
@@ -22,6 +26,12 @@ public class MobEntity extends Entity{
 	    protected float xMove, yMove;
 	    public int a = 1;
 	    public int b = 2;
+	    
+	    private EntityManager entityManager;
+	    private ArrayList<Entity> entities;
+	    public ArrayList<Entity> getEntities() { return entities; }
+	    public Entity entity;
+	    public Player player;
 	    
 	    
 	 // GETTERS AND SETTERS
@@ -50,6 +60,12 @@ public class MobEntity extends Entity{
 
 
 		// METHODS
+		
+		@Override
+		public void die(){
+			this.active = false;
+			
+		}
 
 	    public void move() {
 	    	if (direction == 0) { yMove = -speed; if (!checkEntityCollision(0f, yMove)) { moveY(); } else {direction = 1; }}
